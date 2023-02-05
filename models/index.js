@@ -1,0 +1,1 @@
+// require models and target primary keys to foreign keys.  hasMany belongsTo etc
