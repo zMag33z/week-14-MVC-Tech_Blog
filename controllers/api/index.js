@@ -1,10 +1,10 @@
-const api = require('express').Router();
-const { comment, posT, user } = require('../api')
+// const api = require('express').Router();
+// const { comment, posT, user } = require('../api')
 
 
-api.use('/comment', comment);
+// api.use('/comment', comment);
 
-api.use('/post, ')
+// api.use('/post, ')
 
 
-module.exports = api;
+// module.exports = api;

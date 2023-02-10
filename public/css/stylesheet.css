@@ -1,0 +1,93 @@
+
+header{
+    background-color: var(--header-mainSectionHeads-bg-MostTxt);
+    padding: 20px 60px;
+}
+
+.nav-head{
+    display: flex;
+    flex-wrap: wrap;
+    color: var(--heading-main-bg-navTxt);
+}
+
+a{
+    margin: 0 60px 20px 0;
+    color: var(--heading-main-bg-navTxt);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--mainSectionHeads-txt-headingShadow);
+}
+
+#head-title{
+    width: 300px;
+    background-color: var(--heading-main-bg-navTxt);
+    border-radius: 5px;
+    box-shadow: 6px 6px 0 0 var(--mainSectionHeads-txt-headingShadow);
+    padding: 10px 15px;
+}
+
+main{
+    background-color: var(--heading-main-bg-navTxt);
+    padding: 20px 60px;
+}
+
+.box{
+    border: 3px solid var(--header-mainSectionHeads-bg-MostTxt);
+    border-radius: 5px;
+}
+
+.section-label{
+    /*size*/
+    background-color: var(--header-mainSectionHeads-bg-MostTxt);
+    color: var(--mainSectionHeads-txt-headingShadow);
+}
+
+#topic-title{
+    background-color: var(--header-mainSectionHeads-bg-MostTxt);
+    margin-right: auto;
+}
+
+.section-label:hover{
+    color: var(--heading-main-bg-navTxt);
+}
+
+#topic-title, #by-user{
+    display: inline-block;
+}
+
+#by-user{
+    font-size: 14px;
+    float: right;
+}
+
+.section-label, #user-post{
+    padding: 15px;
+}
+
+#user-post{
+    font-size: 18px;
+}
+
+#info, label{
+    font-size: 18px;
+    padding: 10px 0;
+    color: var(--header-mainSectionHeads-bg-MostTxt);
+}
+
+#btn{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--mainSectionHeads-txt-headingShadow);
+
+}
+
+#btn[type=submit]:hover{
+    color: var(--heading-main-bg-navTxt);
+}
+
+.form{
+    padding: 15px;
+}
