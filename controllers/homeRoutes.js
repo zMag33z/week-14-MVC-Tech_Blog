@@ -18,25 +18,32 @@ console.log('were in');
       include: [
         {
           model: User,
-          attributes: ['id', 'name']
+          attributes: ['name']
         },
         {
           model: Comment,
-          attributes: ['id', 'post_id', 'comment_text', 'commenter_id']
+          attributes: ['id', 'post_id', 'comment_text', 'commenter_id'],
+          include: [
+            {
+              model: User,
+              attributes: ['name']
+            }
+          ]
         }
       ]
     });
 
     const posts = postData.map((project) => project.get({ plain: true }));
 
+console.log(posts[0]);
+    //  checking with insomnia
+    // res.status(200).json(posts);
+    res.render('homepage', {
 
-
-    res.render('homepage', //{
-
-    //   posts,
-    //   // Pass the logged in flag to the template
-    //   logged_in: req.session.logged_in,
-    // }
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    }
     );
   } catch (err) {
     res.status(500).json(err);
