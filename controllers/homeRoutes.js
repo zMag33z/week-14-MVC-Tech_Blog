@@ -2,10 +2,9 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Prevent non logged in users from viewing the homepage
+// 
 router.get('/', async (req, res) => {
   try {
-console.log('were in');
 
     const postData = await Post.findAll({
       attributes: [
@@ -35,7 +34,6 @@ console.log('were in');
 
     const posts = postData.map((project) => project.get({ plain: true }));
 
-console.log(posts[0]);
     //  checking with insomnia
     // res.status(200).json(posts);
     res.render('homepage', {

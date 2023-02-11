@@ -36,6 +36,7 @@ main{
 .box{
     border: 3px solid var(--header-mainSectionHeads-bg-MostTxt);
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .section-label{

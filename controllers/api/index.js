@@ -1,10 +1,11 @@
 // const api = require('express').Router();
-// const { comment, posT, user } = require('../api')
+// const { user-route, post-route, comment-route } = require('../api')
 
+//api.use('/user', user-Route);
 
-// api.use('/comment', comment);
+// api.use('/comment', comment-route);
 
-// api.use('/post, ')
+// api.use('/post, post-route');
 
 
 // module.exports = api;

@@ -13,12 +13,12 @@
 
         <nav class="nav-head">
 
-            <a href="">Home</a>
+            <a href="/">Home</a>
 
-            <a href="">Dashboard</a>
+            <a href="/dashboard">Dashboard</a>
 
-            <a href="">Login</a>
-        <!-- <a href="">Logout</a> template partial-->
+{{#if loggedIn}}<a href="/logout">Logout{{else}}<a hfref= "/login">Login{{/if}}</a>
+
         </nav>
         
         <h1 id="head-title">The Tech Blog</h1>
@@ -30,6 +30,7 @@
 {{{body}}}
 
     </main>
-  
+  <script src="/js/login.js"></script>
+  <script src="/js/logout.js"></script>
 </body>
 </html>
