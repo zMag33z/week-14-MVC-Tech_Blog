@@ -37,9 +37,7 @@ router.get('/', async (req, res) => {
     //  checking with insomnia
     // res.status(200).json(posts);
     res.render('homepage', {
-
       posts,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     }
     );
@@ -50,16 +48,19 @@ router.get('/', async (req, res) => {
 });
 
 
-
 router.get('/login', (req, res) => {
-  console.log('router login', router.stack[1].path)
-  res.render('login');
+  let formTitle = {
+    title: 'Login'
+  }
+  res.render('login', { formTitle });
 });
 
 
-
 router.get('/signup', (req, res) => {
-  res.render('signup');
+  let formTitle = {
+    title: 'Signup'
+  }
+  res.render('signup',{ formTitle });
 })
 
 module.exports = router;

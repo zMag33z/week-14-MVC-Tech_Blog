@@ -10,13 +10,13 @@ header{
     color: var(--heading-main-bg-navTxt);
 }
 
-a{
+.nav-link{
     margin: 0 60px 20px 0;
     color: var(--heading-main-bg-navTxt);
     text-decoration: none;
 }
 
-a:hover{
+.nav-link:hover{
     color: var(--mainSectionHeads-txt-headingShadow);
 }
 
@@ -81,7 +81,7 @@ main{
     font-size: 18px;
 } */
 
-#btn{
+.btn{
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -89,10 +89,21 @@ main{
 
 }
 
-#btn[type=submit]:hover{
+.btn:hover{
     color: var(--heading-main-bg-navTxt);
 }
 
 .form{
     padding: 15px;
 }
+
+.create, .signup{
+    font-size: 18px;
+    color: var(--header-mainSectionHeads-bg-MostTxt);
+    padding-top: 15px;
+}
+
+.signup:hover{
+    color: var(--mainSectionHeads-txt-headingShadow);
+}
+

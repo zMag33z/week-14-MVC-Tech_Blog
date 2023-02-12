@@ -13,11 +13,11 @@
 
         <nav class="nav-head">
 
-            <a href="/">Home</a>
+            <a href="/" class="nav-link">Home</a>
 
-            <a href="/dashboard">Dashboard</a>
+            <a href="/dashboard" class="nav-link">Dashboard</a>
 
-{{#if loggedIn}}<a href="/logout">Logout{{else}}<a href= "/login">Login{{/if}}</a>
+{{#if loggedIn}}<a href="/logout">Logout{{else}}<a href= "/login" class="nav-link">Login{{/if}}</a>
 
         </nav>
         
@@ -29,8 +29,3 @@
 
 {{{body}}}
 
-    </main>
-  <script src="/js/login.js"></script>
-  <script src="/js/logout.js"></script>
-</body>
-</html>
