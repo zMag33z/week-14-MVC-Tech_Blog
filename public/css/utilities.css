@@ -1,9 +1,8 @@
+/* color scheme */
 :root{
     --header-mainSectionHeads-bg-MostTxt: black;
     --heading-main-bg-navTxt: hsl(120, 16%, 77%);
     --mainSectionHeads-txt-headingShadow: grey;
-
-
 }
 
 /* Reset ALL */
@@ -13,10 +12,28 @@
     padding: 0;
 }
 
+/* Full body color */
 body{
     background-color: var(--heading-main-bg-navTxt);
 }
 
+/* Personal fonts */
 h1{
     font-size: 44px;
+}
+
+h2{
+    font-size: 32px;
+}
+
+label{
+    font-size: 24px;
+}
+
+input{
+    font-size: 18px;
+}
+
+p{
+    font-size: 20px;
 }

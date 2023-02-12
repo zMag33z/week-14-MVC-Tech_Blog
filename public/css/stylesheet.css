@@ -1,35 +1,28 @@
-
 header{
-    background-color: var(--header-mainSectionHeads-bg-MostTxt);
     padding: 20px 60px;
 }
 
 .nav-head{
     display: flex;
     flex-wrap: wrap;
-    color: var(--heading-main-bg-navTxt);
+
 }
 
 .nav-link{
     margin: 0 60px 20px 0;
-    color: var(--heading-main-bg-navTxt);
     text-decoration: none;
-}
-
-.nav-link:hover{
-    color: var(--mainSectionHeads-txt-headingShadow);
 }
 
 #head-title{
     width: 300px;
-    background-color: var(--heading-main-bg-navTxt);
     border-radius: 5px;
     box-shadow: 6px 6px 0 0 var(--mainSectionHeads-txt-headingShadow);
     padding: 10px 15px;
+    margin-bottom: 5px;
 }
 
 main{
-    background-color: var(--heading-main-bg-navTxt);
+    
     padding: 20px 60px;
 }
 
@@ -39,27 +32,12 @@ main{
     margin-bottom: 20px;
 }
 
-.section-label{
-    /*size*/
-    background-color: var(--header-mainSectionHeads-bg-MostTxt);
-    color: var(--mainSectionHeads-txt-headingShadow);
-}
-
-#topic-title{
-    background-color: var(--header-mainSectionHeads-bg-MostTxt);
-    margin-right: auto;
-}
-
-.section-label:hover{
-    color: var(--heading-main-bg-navTxt);
-}
-
 #topic-title, #by-user{
     display: inline-block;
 }
 
 #by-user{
-    font-size: 14px;
+    font-size: 15px;
     float: right;
 }
 
@@ -67,30 +45,20 @@ main{
     padding: 15px;
 }
 
-#user-post{
-    font-size: 18px;
-}
 
-#info, input, label{
-    font-size: 18px;
+.box, label{
     padding: 5px 0;
-    color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-/* input{
-    font-size: 18px;
-} */
+#info{
+    padding-bottom: 15px;
+}
+
 
 .btn{
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: var(--mainSectionHeads-txt-headingShadow);
-
-}
-
-.btn:hover{
-    color: var(--heading-main-bg-navTxt);
 }
 
 .form{
@@ -98,12 +66,31 @@ main{
 }
 
 .create, .signup{
-    font-size: 18px;
-    color: var(--header-mainSectionHeads-bg-MostTxt);
     padding-top: 15px;
 }
 
-.signup:hover{
+/* Same font colors */
+#head-title, .create, .signup, .box, label{
+    color: var(--header-mainSectionHeads-bg-MostTxt);
+}
+
+.signup:hover, .section-label, .nav-link:hover{
     color: var(--mainSectionHeads-txt-headingShadow);
 }
 
+.btn:hover, .section-label:hover, .nav-link, .nav-head{
+    color: var(--heading-main-bg-navTxt);
+}
+
+/* Same Bg colors */
+header, #topic-title, .section-label{
+    background-color: var(--header-mainSectionHeads-bg-MostTxt);
+}
+
+.btn{
+    background-color: var(--mainSectionHeads-txt-headingShadow);
+}
+
+main, #head-title{
+    background-color: var(--heading-main-bg-navTxt);
+}
