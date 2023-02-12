@@ -1,7 +1,8 @@
-const router = require('express').Router();
-const { User } = require('../models');
+// const router = require('express').Router();
+// const { Post } = require('../../models');
 
-router.get('/', async (req, res) => {
+
+// router.get('/', async (req, res) => {
 //   try {
 //     // Get all users, sorted by name
 //     const userData = await User.findAll({
@@ -17,6 +18,6 @@ router.get('/', async (req, res) => {
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
-});
+// });
 
-module.exports = router;
+// module.exports = router;

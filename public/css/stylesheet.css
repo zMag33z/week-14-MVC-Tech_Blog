@@ -71,11 +71,15 @@ main{
     font-size: 18px;
 }
 
-#info, label{
+#info, input, label{
     font-size: 18px;
-    padding: 10px 0;
+    padding: 5px 0;
     color: var(--header-mainSectionHeads-bg-MostTxt);
 }
+
+/* input{
+    font-size: 18px;
+} */
 
 #btn{
     padding: 10px;

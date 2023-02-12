@@ -7,20 +7,20 @@
   </div>
 
   <div class="form">  
-    <form>
+    <form class="login-form">
       <div id="info">
-        <label for="userName">Username:</label><br>
-        <input type="text" name="userName"><br>
+        <label for="username">Username:</label><br>
+        <input id="user-login" name="username" type="text" placeholder="Enter Username" onclick="this.select()" required><br>
       </div>
       <div id="info">
-        <label for="pass">Password:</label><br>
-        <input type="text" name="pass"><br><br>
+        <label for="password">Password:</label><br>
+        <input id="password-login" name="password" type="password" placeholder="Enter Password" onclick="this.select()" required><br><br>
       </div>
         <input type="submit" id="btn" value="Login">
     </form>
 
     <p>Please create an account, if you have not already.</p>
-    <button id="btn">Sign Up</button>
+    <button id="btn" class="signup-form" type="submit">Sign Up</button>
 
   </div>
 
