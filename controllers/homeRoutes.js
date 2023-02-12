@@ -52,7 +52,14 @@ router.get('/', async (req, res) => {
 
 
 router.get('/login', (req, res) => {
+  console.log('router login', router.stack[1].path)
   res.render('login');
 });
+
+
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+})
 
 module.exports = router;

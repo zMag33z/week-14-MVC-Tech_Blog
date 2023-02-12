@@ -33,7 +33,7 @@ main{
     padding: 20px 60px;
 }
 
-.box{
+.container{
     border: 3px solid var(--header-mainSectionHeads-bg-MostTxt);
     border-radius: 5px;
     margin-bottom: 20px;
