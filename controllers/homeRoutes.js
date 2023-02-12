@@ -34,8 +34,6 @@ router.get('/', async (req, res) => {
 
     const posts = postData.map((project) => project.get({ plain: true }));
 
-    //  checking with insomnia
-    // res.status(200).json(posts);
     res.render('homepage', {
       posts,
       logged_in: req.session.logged_in,
@@ -43,7 +41,6 @@ router.get('/', async (req, res) => {
     );
   } catch (err) {
     res.status(500).json(err);
-    console.log(err);
   }
 });
 

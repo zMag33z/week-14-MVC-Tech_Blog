@@ -21,11 +21,11 @@ header{
     margin-bottom: 5px;
 }
 
-main{
-    
+main{    
     padding: 20px 60px;
 }
 
+/* Basically beginning of Section being called */
 .container{
     border: 3px solid var(--header-mainSectionHeads-bg-MostTxt);
     border-radius: 5px;
@@ -36,6 +36,8 @@ main{
     display: inline-block;
 }
 
+
+/* Posts */
 #by-user{
     font-size: 15px;
     float: right;
@@ -45,30 +47,33 @@ main{
     padding: 15px;
 }
 
-
-.box, label{
-    padding: 5px 0;
+/* Forms */
+.form{
+    padding: 15px;
 }
 
 #info{
     padding-bottom: 15px;
 }
 
+.box{
+    padding: 5px 0;
+}
 
 .btn{
     padding: 10px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.form{
-    padding: 15px;
-}
-
-.create, .signup{
+.create{
     padding-top: 15px;
 }
 
+/* Comments */
+
+/* Color Sharings */
 /* Same font colors */
 #head-title, .create, .signup, .box, label{
     color: var(--header-mainSectionHeads-bg-MostTxt);

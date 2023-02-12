@@ -1,18 +1,16 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-
-
 // CREATE new user
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
-      username: req.body.username,
+      name: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
 
-    // Set up sessions with a 'loggedIn' variable set to `true`
+    // Pass back session true for redirect in signup.js
     req.session.save(() => {
       req.session.loggedIn = true;
 
@@ -40,7 +38,7 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
-
+    // check given and internal password against one another
     const validPassword = await dbUserData.checkPassword(req.body.password);
     if (!validPassword) {
       console.log('NOT VALID');
@@ -65,7 +63,6 @@ router.post('/login', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 
 // Logout
