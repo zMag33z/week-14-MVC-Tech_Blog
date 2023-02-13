@@ -17,7 +17,9 @@
 
             <a href="/dashboard" class="nav-link">Dashboard</a>
 
-{{#if loggedIn}}<a href="/logout">Logout{{else}}<a href= "/login" class="nav-link">Login{{/if}}</a>
+{{#if logged_In}}
+            <a id="logout" href="/logout" class="nav-link">Logout</a>
+    {{else}}<a href= "/login" class="nav-link">Login</a>{{/if}}
 
         </nav>
         

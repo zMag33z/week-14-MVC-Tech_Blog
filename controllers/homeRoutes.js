@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 
 // 
@@ -36,7 +37,7 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       posts,
-      logged_in: req.session.logged_in,
+      logged_In: req.session.loggedIn,
     }
     );
   } catch (err) {
@@ -58,6 +59,13 @@ router.get('/signup', (req, res) => {
     title: 'Signup'
   }
   res.render('signup',{ formTitle });
+})
+
+router.get('/dashboard', withAuth, (req, res) => {
+  // let formTitle = {
+  //   title: 'Signup'
+  // }
+  res.render('dashboard');
 })
 
 module.exports = router;

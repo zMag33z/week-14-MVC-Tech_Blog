@@ -4,4 +4,8 @@
     {{> all-posts}}
 {{/each}}
 
+{{#if logged_In}}
+{{> script-logout}}
+{{else}}
 {{> script-none}}
+{{/if}}
