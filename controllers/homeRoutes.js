@@ -6,7 +6,6 @@ const { withAuth, hasAuth } = require('../utils/auth');
 
 // 
 router.get('/', async (req, res) => {
-  console.log('HOMEPAGE', req.session.loggedIn);
   try {
 
     const postData = await Post.findAll({
@@ -49,15 +48,10 @@ router.get('/', async (req, res) => {
 
 
 router.get('/login', hasAuth, (req, res) => {
-
-
   let formTitle = {
     title: 'Login'
   }
-
   res.render('login', { formTitle });
-
-
 });
 
 
@@ -68,12 +62,9 @@ router.get('/signup', (req, res) => {
   res.render('signup',{ formTitle });
 })
 
+
 router.get('/dashboard', withAuth, (req, res) => {
-  console.log('DASHBOARD', req.session.loggedIn);
-  // let formTitle = {
-  //   title: 'Signup'
-  // }
-  res.render('dashboard');
+  res.render('dashboard', {logged_In: req.session.loggedIn});
 })
 
 module.exports = router;

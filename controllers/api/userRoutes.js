@@ -9,7 +9,6 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-
     // Pass back session true for redirect in signup.js
     req.session.save(() => {
       req.session.loggedIn = true;
@@ -22,17 +21,14 @@ router.post('/', async (req, res) => {
 });
 
 
-
 // Login
-router.post('/login', async (req, res) => {
-  
+router.post('/login', async (req, res) => {  
   try {
     const dbUserData = await User.findOne({
       where: {
         name: req.body.userLogin,
       },
     });
-
     if (!dbUserData) {
       res
         .status(400)
@@ -47,7 +43,6 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
-
     // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {      
       req.session.loggedIn = true;

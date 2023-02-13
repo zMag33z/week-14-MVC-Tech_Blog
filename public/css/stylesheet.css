@@ -38,12 +38,14 @@ main{
 
 
 /* Posts */
+
+
 #by-user{
     font-size: 15px;
     float: right;
 }
 
-.section-label, #user-post{
+.section-label, .posts, .comments, .post-comment, .list-comments{
     padding: 15px;
 }
 
@@ -64,22 +66,38 @@ main{
     padding: 10px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 .create{
     padding-top: 15px;
 }
 
-/* Comments */
+.btn, #comments, #hide-list{
+    cursor: pointer;
+}
 
+.comments{
+    text-align: right;
+    text-decoration: underline;
+    border-top: 2px solid;
+    display: none;
+}
+
+#hide-list{
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 0;
+}
+.post-comment{
+    height: 40px;
+}
 /* Color Sharings */
 /* Same font colors */
 #head-title, .create, .signup, .box, label{
     color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-.signup:hover, .section-label, .nav-link:hover{
+.signup:hover, .section-label, .post-comment, .nav-link:hover{
     color: var(--mainSectionHeads-txt-headingShadow);
 }
 
@@ -88,7 +106,7 @@ main{
 }
 
 /* Same Bg colors */
-header, #topic-title, .section-label{
+header, #topic-title, .section-label, .post-comment{
     background-color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
