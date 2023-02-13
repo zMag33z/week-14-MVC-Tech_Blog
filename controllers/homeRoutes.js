@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-const withAuth = require('../utils/auth');
-const hasAuth = require('../utils/auth')
+const { withAuth, hasAuth } = require('../utils/auth');
+
 
 
 // 
@@ -48,8 +48,8 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/login', (req, res) => {
-if(!req.session.loggedIn){
+router.get('/login', hasAuth, (req, res) => {
+
 
   let formTitle = {
     title: 'Login'
@@ -57,9 +57,7 @@ if(!req.session.loggedIn){
 
   res.render('login', { formTitle });
 
-}else{
-  res.redirect('/');
-}
+
 });
 
 
