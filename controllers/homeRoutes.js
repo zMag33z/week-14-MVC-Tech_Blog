@@ -3,7 +3,6 @@ const { User, Post, Comment } = require('../models');
 const { withAuth, hasAuth } = require('../utils/auth');
 
 
-
 // 
 router.get('/', async (req, res) => {
   try {
