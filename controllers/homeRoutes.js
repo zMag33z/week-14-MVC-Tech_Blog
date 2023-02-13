@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const hasAuth = require('../utils/auth')
 
 
 // 
 router.get('/', async (req, res) => {
+  console.log('HOMEPAGE', req.session.loggedIn);
   try {
 
     const postData = await Post.findAll({
@@ -47,10 +49,17 @@ router.get('/', async (req, res) => {
 
 
 router.get('/login', (req, res) => {
+if(!req.session.loggedIn){
+
   let formTitle = {
     title: 'Login'
   }
+
   res.render('login', { formTitle });
+
+}else{
+  res.redirect('/');
+}
 });
 
 
@@ -62,6 +71,7 @@ router.get('/signup', (req, res) => {
 })
 
 router.get('/dashboard', withAuth, (req, res) => {
+  console.log('DASHBOARD', req.session.loggedIn);
   // let formTitle = {
   //   title: 'Signup'
   // }

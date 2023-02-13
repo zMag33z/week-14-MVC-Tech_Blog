@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
 
 // Login
 router.post('/login', async (req, res) => {
+  
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -48,10 +49,7 @@ router.post('/login', async (req, res) => {
     }
 
     // Once the user successfully logs in, set up the sessions variable 'loggedIn'
-    req.session.save(() => {
-
-
-      
+    req.session.save(() => {      
       req.session.loggedIn = true;
       res
         .status(200)
