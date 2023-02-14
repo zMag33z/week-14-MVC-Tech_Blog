@@ -69,13 +69,16 @@ main{
 }
 
 .comments{
-    text-align: right;
     text-decoration: underline;
     border-top: 2px solid;
 }
 
 .comment-list{
     display: none;
+}
+
+#comments{
+    width: 110px;
 }
 
 #hide-list{
@@ -104,7 +107,11 @@ main{
     color: var(--mainSectionHeads-txt-headingShadow);
 }
 
-.btn:hover, .section-label:hover, .nav-link, .nav-head{
+.btn:hover, .nav-link, .nav-head{
+    color: var(--heading-main-bg-navTxt);
+}
+
+.container:hover .section-label, .post-comment{
     color: var(--heading-main-bg-navTxt);
 }
 
