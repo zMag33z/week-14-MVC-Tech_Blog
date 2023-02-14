@@ -111,7 +111,7 @@ main{
     color: var(--heading-main-bg-navTxt);
 }
 
-.container:hover .section-label, .post-comment{
+.container:hover [data-style="hover"]{
     color: var(--heading-main-bg-navTxt);
 }
 

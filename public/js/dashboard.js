@@ -1,0 +1,1 @@
+const dash_Title = document.querySelector('#head-title').innerHTML = 'Dashboard';

@@ -1,5 +1,3 @@
-const dash_Title = document.querySelector('#head-title').innerHTML = 'Dashboard';
-
 const comment_count = document.querySelector('.comments');
 const comment_list = document.querySelector('.comment-list');
 
