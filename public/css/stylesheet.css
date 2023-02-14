@@ -1,3 +1,4 @@
+/* Header Top of Page */
 header{
     padding: 20px 60px;
 }
@@ -21,36 +22,29 @@ header{
     margin-bottom: 5px;
 }
 
+/* Main Area of Display */
 main{    
     padding: 20px 60px;
 }
 
-/* Basically beginning of Section being called */
+/* Contains each post/form */
 .container{
     border: 3px solid var(--header-mainSectionHeads-bg-MostTxt);
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
+/* Next to one another on document */
 #topic-title, #by-user{
     display: inline-block;
 }
 
-/* Posts */
 #by-user{
     font-size: 15px;
     float: right;
 }
 
-.section-label, .posts, .comments, .post-comment, .list-comments{
-    padding: 15px;
-}
-
-/* Forms */
-.form{
-    padding: 15px;
-}
-
+/* user forms signup/login */
 #info{
     padding-bottom: 15px;
 }
@@ -69,14 +63,18 @@ main{
     padding-top: 15px;
 }
 
-.btn, #comments, #hide-list{
-    cursor: pointer;
+/* Posts and Comments to Posts*/
+.post-comment{
+    height: 40px;
 }
 
 .comments{
     text-align: right;
     text-decoration: underline;
     border-top: 2px solid;
+}
+
+.comment-list{
     display: none;
 }
 
@@ -85,16 +83,24 @@ main{
     font-size: 44px;
     line-height: 0;
 }
-.post-comment{
-    height: 40px;
+
+/* padding and margin sharings */
+.section-label, .form, .posts, .comments, .post-comment, .list-comments{
+    padding: 15px;
 }
+
+/* Share Button features */
+.btn, #comments, #hide-list{
+    cursor: pointer;
+}
+
 /* Color Sharings */
 /* Same font colors */
 #head-title, .create, .signup, .box, label{
     color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-.signup:hover, .section-label, .post-comment, .nav-link:hover{
+.signup:hover, .section-label, .post-comment, .nav-link:hover, #comments:hover{
     color: var(--mainSectionHeads-txt-headingShadow);
 }
 

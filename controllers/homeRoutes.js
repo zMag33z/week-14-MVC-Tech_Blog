@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'post_id', 'comment_text', 'commenter_id'],
+          attributes: ['id', 'post_id', 'comment_text', 'commenter_id', 'comment_date'],
           include: [
             {
               model: User,
@@ -35,11 +35,14 @@ router.get('/', async (req, res) => {
 
     const posts = postData.map((project) => project.get({ plain: true }));
 
+    console.log('GET',posts);
+
     res.render('homepage', {
       posts,
       logged_In: req.session.loggedIn,
     }
     );
+    // res.status(200).json(posts[0]);
   } catch (err) {
     res.status(500).json(err);
   }
