@@ -5,21 +5,6 @@
     <p id="user-post">{{post_text}}</p>
   </div>
   
-  <div class="comments">
-    <p id="comments">comments:  <span id="comment-total">{{comments.length}}</span></p>
-  </div>
-{{#each comments}}
-  <div class="comment-list">
+  {{> all-post-comments}}
 
-    <div class="post-comment" data-style="hover">
-      <p id="hide-list">-</p>
-      <p id="by-user">Comment by: {{this.user.name}} on {{this.comment_date}}</p>
-    </div>
-
-    <div class="list-comments">
-      <p id="user-comment">{{this.comment_text}}</p>
-    </div>
-
-  </div>
-{{/each}}
 </section>

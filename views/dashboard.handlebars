@@ -1,3 +1,41 @@
+{{> section-label}}
+        <h2 id="topic-title">{{viewTitle.posts}}</h2>
+    </div>
 
+    <div class="comments">
+        <p id="{{posts.id}}">posts:  <span id="comment-total">{{posts.length}}</span></p>
+    </div>
+
+    <div class="list">
+        <div class="list-top">
+            <p id="{{id}}">-</p>
+        </div>
+
+    {{#each posts}}
+        <section>
+            <div class="section-label" data-style="hover">
+            {{> all-titles}}
+            {{> all-posts}}
+
+    {{/each}}
+
+{{> close-section}}
+
+
+{{> section-label}}
+        <h2 id="topic-title">{{viewTitle.comments}}</h2>
+    </div>
+
+    <div class="comments">
+        <p id="{{posts.comments.id}}" class="click-width open">comments:  <span id="comment-total">{{comments.length}}</span></p>
+    </div>
+
+    <div class="list">
+        <div class="list-top">
+            <p id="hide-list">-</p>
+        </div>
+{{> close-section}}
+
+{{> new-post}}
 
 {{> script-dashboard}}

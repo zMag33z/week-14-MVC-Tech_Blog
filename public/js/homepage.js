@@ -1,5 +1,7 @@
 const comment_count = document.querySelector('.comments');
 const comment_list = document.querySelector('.comment-list');
+const buttonShow = document.querySelectorAll('.open');
+const buttonHide = document.querySelectorAll('.close');
 
 function showComments(){
     comment_count.style.display = 'none';
@@ -11,5 +13,15 @@ function hideComments(){
     comment_count.style.display = 'block';
 };
 
-document.querySelector('#comments').addEventListener('click', showComments);
-document.querySelector('#hide-list').addEventListener('click', hideComments);
+console.log(buttonShow.length);
+
+for(let i = 0; i < buttonShow.length; i++){
+    buttonShow[i] = buttonShow.addEventListener('click', showComments);
+    console.log('button')
+}
+// buttonShow.forEach(buttonShow => {
+//     buttonShow.addEventListener('click', showComments);
+// })
+
+addEventListener('click', hideComments);
+

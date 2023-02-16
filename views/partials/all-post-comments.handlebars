@@ -1,0 +1,17 @@
+{{> all-count}}
+
+  <div class="comment-list">
+    <div class="list-top">
+      <p id="{{this.id}}" class="close">-</p>
+    </div>
+{{#each comments as |comment|}}
+    <div class="post-comment" data-style="hover">
+      <p id="by-user">Comment by: {{this.user.name}} on {{this.comment_date}}</p>
+    </div>
+
+    <div class="list-comments">
+      <p id="user-comment">{{this.comment_text}}</p>
+    </div>
+{{/each}}
+
+  </div>

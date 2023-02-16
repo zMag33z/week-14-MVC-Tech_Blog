@@ -16,21 +16,21 @@ header{
 
 #head-title{
     width: 300px;
-    border-radius: 5px;
     box-shadow: 6px 6px 0 0 var(--mainSectionHeads-txt-headingShadow);
     padding: 10px 15px;
     margin-bottom: 5px;
 }
 
-/* Main Area of Display */
-main{    
-    padding: 20px 60px;
+/* Main Area of Display - Relative to New Post Button on dashboard */
+main{
+    position: relative;
+    min-height: 80vh;
+    padding: 20px 60px 135px 60px;
 }
 
 /* Contains each post/form */
 .container{
     border: 3px solid var(--header-mainSectionHeads-bg-MostTxt);
-    border-radius: 5px;
     margin-bottom: 20px;
 }
 
@@ -56,7 +56,6 @@ main{
 .btn{
     padding: 10px;
     border: none;
-    border-radius: 5px;
 }
 
 .create{
@@ -64,36 +63,61 @@ main{
 }
 
 /* Posts and Comments to Posts*/
-.post-comment{
+.post-comment, .list-top{
     height: 40px;
 }
 
 .comments{
     text-decoration: underline;
-    border-top: 2px solid;
+}
+
+.comments, .list-top{
+    border-top: 2px solid var(--header-mainSectionHeads-bg-MostTxt);
 }
 
 .comment-list{
     display: none;
 }
 
-#comments{
+.click-width{
     width: 110px;
 }
 
-#hide-list{
+.close{
     font-weight: 900;
     font-size: 44px;
     line-height: 0;
 }
 
+/* Dashboard create post */
+.new-post{
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+#new-post{
+    font-size: 32px;
+}
+
+.list{
+    display: none;
+}
+
+/* Border radius */
+#head-title, .container, .btn, #new-post{
+    border-radius: 5px;
+}
+
 /* padding and margin sharings */
-.section-label, .form, .posts, .comments, .post-comment, .list-comments{
+.section-label, .form, .posts, .comments, .post-comment, .list-comments, #new-post, .list-top{
     padding: 15px;
 }
 
 /* Share Button features */
-.btn, #comments, #hide-list{
+.btn, .open, .close, #new-post{
     cursor: pointer;
 }
 
@@ -103,20 +127,16 @@ main{
     color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-.signup:hover, .section-label, .post-comment, .nav-link:hover, #comments:hover{
+.signup:hover, .section-label, .post-comment, .nav-link:hover, .open:hover, #new-post, .list-top{
     color: var(--mainSectionHeads-txt-headingShadow);
 }
 
-.btn:hover, .nav-link, .nav-head{
-    color: var(--heading-main-bg-navTxt);
-}
-
-.container:hover [data-style="hover"]{
+.btn:hover, .nav-link, .nav-head, .container:hover [data-style="hover"], #new-post:hover{
     color: var(--heading-main-bg-navTxt);
 }
 
 /* Same Bg colors */
-header, #topic-title, .section-label, .post-comment{
+header, #topic-title, .section-label, .post-comment, #new-post{
     background-color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
