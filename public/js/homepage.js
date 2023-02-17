@@ -1,20 +1,25 @@
-const comment_count = document.querySelector('.comments');
-const comment_list = document.querySelector('.comment-list');
-const buttonShow = document.querySelectorAll('.open');
-const buttonHide = document.querySelectorAll('.close');
+// Event listeners per comment show/hide clickable text.  Specific to each parent.
+const commentsTOpost = document.querySelectorAll('.comments');
 
-function showComments(){
-    comment_count.style.display = 'none';
-    comment_list.style.display ='block';
+
+commentsTOpost.forEach(comments => {
+    comments.firstElementChild.addEventListener('click', showComments);
+    comments.nextElementSibling.firstElementChild.firstElementChild.addEventListener('click', hideComments);
+})
+
+
+function showComments(e){
+    let targetParent = e.target.parentNode;
+    let parentNextSib = e.target.parentNode.nextElementSibling;
+
+    targetParent.style.display = 'none';
+    parentNextSib.style.display = 'block';
 };
 
-function hideComments(){
-    comment_list.style.display = 'none';
-    comment_count.style.display = 'block';
+function hideComments(e){
+    let targetParent = e.target.parentNode.parentNode;
+    let parentPrevSib = e.target.parentNode.parentNode.previousElementSibling;
+
+    targetParent.style.display = 'none';
+    parentPrevSib.style.display = 'block';
 };
-
-
-
-
-addEventListener('click', hideComments);
-

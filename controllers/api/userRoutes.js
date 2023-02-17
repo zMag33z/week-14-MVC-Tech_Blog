@@ -15,8 +15,7 @@ router.post('/', async (req, res) => {
       res.status(200).json(dbUserData);
     });
   } catch (err) {
-    res.message = 'Username or Email already exists!',
-    res.status(500).json(res.message);
+    res.status(500).json( {message: 'Username or Email Already Exists!'});
   }
 });
 
