@@ -4,7 +4,7 @@ const { User } = require('../../models');
 // CREATE new user
 router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
+    const newUserData = await User.create({
       name: req.body.username,
       email: req.body.email,
       password: req.body.password,
@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
     // Pass back session true for redirect in signup.js
     req.session.save(() => {
       req.session.loggedIn = true;
-      res.status(200).json(dbUserData);
+      res.status(200).json(newUserData);
     });
   } catch (err) {
     res.status(500).json( {message: 'Username or Email Already Exists!'});
