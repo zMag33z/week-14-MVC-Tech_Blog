@@ -2,7 +2,7 @@
         <h2 id="topic-title">{{viewTitle.posts}}</h2>
     </div>
 
-    <div class="comments">
+    <div class="posts underline">
         <p id="{{posts.id}}">posts:  <span id="comment-total">{{posts.length}}</span></p>
     </div>
 
@@ -26,7 +26,7 @@
         <h2 id="topic-title">{{viewTitle.comments}}</h2>
     </div>
 
-    <div class="comments">
+    <div class="comments underline">
         <p id="{{posts.comments.id}}" class="click-width open">comments:  <span id="comment-total">{{comments.length}}</span></p>
     </div>
 
@@ -39,3 +39,4 @@
 {{> new-post}}
 
 {{> script-dashboard}}
+{{> script-logout}}

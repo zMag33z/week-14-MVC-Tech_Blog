@@ -63,17 +63,6 @@ router.get('/signup', (req, res) => {
 })
 
 
-// router.get('/dashboard', withAuth, (req, res) => {
-//   let title = {
-//         posts: 'View Your Posts',
-//         comments: 'View Your Comments'
-//       }
-//   res.render('dashboard', {
-//     title,
-//     logged_In: req.session.loggedIn
-//   });
-// })
-
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
 

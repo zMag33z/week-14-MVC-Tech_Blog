@@ -13,12 +13,12 @@ const commentData = [
   },
   {
     post_id: 2,
-    comment_text: 'Same here.  It was a very interesting subject.',
+    comment_text: 'This was very enlightening.  I can now see class objects and models from a new angle.',
     commenter_id: 1
   },
   {
     post_id: 3,
-    comment_text: 'Same here.  It was a very interesting subject.',
+    comment_text: 'Comment Seed Number 4.',
     commenter_id: 1
   }
 ];
