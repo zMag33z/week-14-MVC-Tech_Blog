@@ -13,21 +13,3 @@ function hideComments(){
     comment_count.style.display = 'block';
 };
 
-// document.querySelector('#comments').addEventListener('click', showComments);
-document.querySelector('#hide-list').addEventListener('click', hideComments);
-
-
-const view_Your = document.querySelectorAll('#comments');
-
-for(let i = 0; i < view_Your.length; i++){
-        view_Your[i].addEventListener('click', showComments);
-};
-
-
-// function viewYourPosts(){
-//     console.log('POSTS');
-// }
-
-// function viewYourComments(){
-//     console.log('COMMENTS');
-// }

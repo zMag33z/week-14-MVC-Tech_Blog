@@ -13,15 +13,8 @@ function hideComments(){
     comment_count.style.display = 'block';
 };
 
-console.log(buttonShow.length);
 
-for(let i = 0; i < buttonShow.length; i++){
-    buttonShow[i] = buttonShow.addEventListener('click', showComments);
-    console.log('button')
-}
-// buttonShow.forEach(buttonShow => {
-//     buttonShow.addEventListener('click', showComments);
-// })
+
 
 addEventListener('click', hideComments);
 

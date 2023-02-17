@@ -48,10 +48,14 @@ router.get('/', async (req, res) => {
 
 
 router.get('/login', hasAuth, (req, res) => {
+  let login = '/login';
+  let requestFrom = req.url;
+  const isTrue = login === requestFrom;
+
   let formTitle = {
     title: 'Login'
   }
-  res.render('login', { formTitle });
+  res.render('login', { formTitle, isTrue });
 });
 
 
@@ -65,7 +69,6 @@ router.get('/signup', (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-
     const postData = await Post.findAll({
       attributes: [
         'id',

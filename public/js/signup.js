@@ -1,3 +1,5 @@
+// Future note:  Add input validators.
+
 const signupFormHandler = async (e) => {
     e.preventDefault();
   
@@ -12,10 +14,12 @@ const signupFormHandler = async (e) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
+   
+
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert('Failed to sign up.');
+        alert('Username or Email already exists.');
       }
     }
   };

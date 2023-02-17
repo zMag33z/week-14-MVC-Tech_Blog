@@ -12,11 +12,11 @@ router.post('/', async (req, res) => {
     // Pass back session true for redirect in signup.js
     req.session.save(() => {
       req.session.loggedIn = true;
-
       res.status(200).json(dbUserData);
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.message = 'Username or Email already exists!',
+    res.status(500).json(res.message);
   }
 });
 
@@ -44,7 +44,8 @@ router.post('/login', async (req, res) => {
       return;
     }
     // Once the user successfully logs in, set up the sessions variable 'loggedIn'
-    req.session.save(() => {      
+    req.session.save(() => {
+
       req.session.loggedIn = true;
       res
         .status(200)
