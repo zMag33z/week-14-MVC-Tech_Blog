@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Post } = require('../../models');
 
+
+//Had seed ids all off start again manana..
 // router.get('/dashboard', withAuth, async (req, res) => {  
 //     try {
 //       console.log('DASHBOARD', req.session.curr_id);

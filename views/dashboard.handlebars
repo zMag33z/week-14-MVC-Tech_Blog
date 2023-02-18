@@ -2,13 +2,13 @@
         <h2 id="topic-title">{{viewTitle.posts}}</h2>
     </div>
 
-    <div class="posts underline">
-        <p id="{{posts.id}}">posts:  <span id="comment-total">{{posts.length}}</span></p>
+    <div class="comments underline">
+        <p id="{{sectionID}}" class="click-width open">posts:  <span id="comment-total">{{posts.length}}</span></p>
     </div>
 
     <div class="list">
         <div class="list-top">
-            <p id="{{id}}">-</p>
+            <p id="{{sectionID}}" class="close">-</p>
         </div>
 
     {{#each posts}}
@@ -27,13 +27,22 @@
     </div>
 
     <div class="comments underline">
-        <p id="{{comments.id}}" class="click-width open">comments:  <span id="comment-total">{{comments.length}}</span></p>
+        <p id="{{sectionID}}" class="click-width open">comments:  <span id="comment-total">{{comments.length}}</span></p>
     </div>
 
     <div class="list">
         <div class="list-top">
-            <p id="hide-list">-</p>
+            <p id="hide-list" class="close">-</p>
         </div>
+
+        <section>
+            {{#each comments}}
+            {{> all-comment-postTitles}}
+            {{> all-comments}}
+            {{/each}}
+        </section>        
+    </div>
+
 {{> close-section}}
 
 {{> new-post}}

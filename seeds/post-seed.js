@@ -9,22 +9,22 @@ const postData = [
   {
     title: 'TITLE 2',
     post_text: 'POST TEXT 2',
-    poster_id: 1,
+    poster_id: 2,
   },
   {
     title: 'TITLE 3',
     post_text: 'POST TEXT 3',
-    poster_id: 1,
+    poster_id: 3,
   },
   {
     title: 'TITLE 4',
     post_text: 'POST TEXT 4',
-    poster_id: 1,
+    poster_id: 4,
   },
   {
     title: 'TITLE 5',
     post_text: 'POST TEXT 5',
-    poster_id: 1,
+    poster_id: 5,
   }
   // {
   //   title: 'Why MVC is so important',

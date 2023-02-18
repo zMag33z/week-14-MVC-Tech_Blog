@@ -6,7 +6,6 @@ const { withAuth, hasAuth } = require('../utils/auth');
 // 
 router.get('/', async (req, res) => {
   try {
-
     const postData = await Post.findAll({
       attributes: [
         'id',
