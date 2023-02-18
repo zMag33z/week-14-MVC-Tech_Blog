@@ -40,7 +40,7 @@ router.get('/', async (req, res) => {
       logged_In: req.session.loggedIn,
     }
     );
-    // res.status(200).json(posts[0]);
+    // res.status(200).json(posts);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -59,7 +59,7 @@ router.get('/login', hasAuth, (req, res) => {
 });
 
 
-router.get('/signup', (req, res) => {
+router.get('/signup', hasAuth, (req, res) => {
   let formTitle = {
     title: 'Signup'
   }
@@ -67,51 +67,7 @@ router.get('/signup', (req, res) => {
 })
 
 
-router.get('/dashboard', withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findAll({
-      attributes: [
-        'id',
-        'title',
-        'post_text',
-        'post_date',
-        'poster_id'
-      ],
-      include: [
-        {
-          model: User,
-          attributes: ['name']
-        },
-        {
-          model: Comment,
-          attributes: ['id', 'post_id', 'comment_text', 'commenter_id', 'comment_date'],
-          include: [
-            {
-              model: User,
-              attributes: ['name']
-            }
-          ]
-        }
-      ]
-    });
 
-    let viewTitle = {
-      posts: 'View Your Posts',
-      comments: 'View Your Comments'
-    }
-    const posts = postData.map((project) => project.get({ plain: true }));
-
-    res.render('dashboard', {
-      viewTitle,
-      posts,
-      logged_In: req.session.loggedIn,
-    }
-    );
-    // res.status(200).json(posts);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 
 module.exports = router;

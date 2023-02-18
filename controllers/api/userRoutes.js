@@ -9,8 +9,19 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
+
+    const userID = await User.findOne({
+      attributes: ['id'],
+      where: {
+        name: req.body.username
+      }
+    })
+    //
+    userID.get({ plain: true });
+
     // Pass back session true for redirect in signup.js
     req.session.save(() => {
+      req.session.curr_id = userID.id;
       req.session.loggedIn = true;
       res.status(200).json(newUserData);
     });
@@ -42,13 +53,13 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
+
+
     // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {
-
+      req.session.curr_id = dbUserData.dataValues.id;
       req.session.loggedIn = true;
-      res
-        .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
+      res.status(200).json({ message: 'You are now logged in!' });
     });
   } catch (err) {
     res.status(500).json(err);
