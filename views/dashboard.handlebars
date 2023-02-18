@@ -2,18 +2,19 @@
         <h2 id="topic-title">{{viewTitle.posts}}</h2>
     </div>
 
-    <div class="comments underline">
-        <p id="{{sectionID}}" class="click-width open">posts:  <span id="comment-total">{{posts.length}}</span></p>
+    <div class="comments">
+        <p id="{{sectionID}}" class="underline click-width open">posts:  <span id="comment-total">{{posts.length}}</span></p>
     </div>
 
     <div class="list">
         <div class="list-top">
             <p id="{{sectionID}}" class="close">-</p>
+            <p class="click-edit">( click post section to edit )</p>
         </div>
 
     {{#each posts}}
-        <section>
-            <div class="section-label" data-style="hover">
+        <section class="edit-post select">
+            <div class="section-label" data-style="userHov">
             {{> all-titles}}
             {{> all-posts}}
 
@@ -26,16 +27,17 @@
         <h2 id="topic-title">{{viewTitle.comments}}</h2>
     </div>
 
-    <div class="comments underline">
-        <p id="{{sectionID}}" class="click-width open">comments:  <span id="comment-total">{{comments.length}}</span></p>
+    <div class="comments">
+        <p id="{{sectionID}}" class="underline click-width open">comments:  <span id="comment-total">{{comments.length}}</span></p>
     </div>
 
     <div class="list">
         <div class="list-top">
             <p id="hide-list" class="close">-</p>
+            <p class="click-edit">( click comment section to edit )</p>
         </div>
 
-        <section>
+        <section class="edit-comment select">
             {{#each comments}}
             {{> all-comment-postTitles}}
             {{> all-comments}}

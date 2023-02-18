@@ -35,7 +35,7 @@ main{
 }
 
 /* Next to one another on document */
-#topic-title, #by-user{
+#topic-title, #by-user, .open, .edit, .close, .click-edit{
     display: inline-block;
 }
 
@@ -75,10 +75,6 @@ main{
     border-top: 2px solid var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-.comment-list{
-    display: none;
-}
-
 .click-width{
     width: 110px;
 }
@@ -102,8 +98,13 @@ main{
     font-size: 32px;
 }
 
-.list{
+.list, .comment-list{
     display: none;
+}
+
+.click-edit{
+    margin-left: 40px;
+    padding-bottom: 5px;
 }
 
 /* Border radius */
@@ -117,24 +118,26 @@ main{
 }
 
 /* Share Button features */
-.btn, .open, .close, #new-post{
+.btn, .open, .close, #new-post, .edit{
     cursor: pointer;
 }
 
 /* Color Sharings */
 /* Same font colors */
-#head-title, .create, .signup, .box, label{
+#head-title, .create, .signup, .box, label, .edit{
     color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-.signup:hover, .section-label, .post-comment, .nav-link:hover, .open:hover, #new-post, .list-top{
+.signup:hover, .section-label, .post-comment, .nav-link:hover, .open:hover, #new-post, .list-top, .edit:hover{
     color: var(--mainSectionHeads-txt-headingShadow);
 }
 
 .btn:hover, .nav-link, .nav-head, .container:hover [data-style="hover"], #new-post:hover{
     color: var(--heading-main-bg-navTxt);
 }
-
+.select:hover [data-style="userHov"]{
+    color: var(--heading-main-bg-navTxt);
+}
 /* Same Bg colors */
 header, #topic-title, .section-label, .post-comment, #new-post{
     background-color: var(--header-mainSectionHeads-bg-MostTxt);

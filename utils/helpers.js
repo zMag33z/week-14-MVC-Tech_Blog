@@ -9,10 +9,4 @@ module.exports = {
       return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
         new Date(date).getFullYear()}`;
     },
-    // format_id: () => {
-    //   for(let i = 0; i < posts.length; i++){
-    //     sectionID + 1;
-    //   }
-    //   return sectionID;
-    // }
   };
