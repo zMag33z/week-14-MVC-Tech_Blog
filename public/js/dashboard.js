@@ -29,3 +29,6 @@ function hideComments(e){
     targetParent.style.display = 'none';
     parentPrevSib.style.display = 'block';
 };
+
+
+console.log('URL', previous_url);
