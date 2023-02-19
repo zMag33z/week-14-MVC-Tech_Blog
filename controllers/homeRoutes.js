@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-const { withAuth, hasAuth } = require('../utils/auth');
+const { hasAuth } = require('../utils/auth');
 
 
-// 
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -64,9 +63,6 @@ router.get('/signup', hasAuth, (req, res) => {
   }
   res.render('signup',{ formTitle });
 })
-
-
-
 
 
 module.exports = router;

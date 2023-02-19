@@ -71,8 +71,6 @@ router.get('/', withAuth, async (req, res) => {
       const posts = postData.map((project) => project.get({ plain: true }));
       const comments = commentData.map((project) => project.get({ plain: true }));
   
-  
-  
       res.render('dashboard', {
         viewTitle,
         posts,
@@ -86,6 +84,12 @@ router.get('/', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+
+    
+
+
+
 
 
   module.exports = router;
