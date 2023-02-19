@@ -9,6 +9,7 @@ commentsTOpost.forEach(comments => {
 
 add_comment.forEach(add => {
     add.innerHTML = '[ add a comment ]';
+    add.addEventListener('click', postComment)
 })
 
 function showComments(e){
@@ -26,3 +27,7 @@ function hideComments(e){
     targetParent.style.display = 'none';
     parentPrevSib.style.display = 'block';
 };
+
+function postComment(e){
+    console.log();
+}

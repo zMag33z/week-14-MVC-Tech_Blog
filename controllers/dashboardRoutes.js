@@ -68,8 +68,6 @@ router.get('/', withAuth, async (req, res) => {
         comments: 'View Your Comments'
       }
 
-      let sectionID = 1;
-
       const posts = postData.map((project) => project.get({ plain: true }));
       const comments = commentData.map((project) => project.get({ plain: true }));
   
@@ -77,7 +75,6 @@ router.get('/', withAuth, async (req, res) => {
   
       res.render('dashboard', {
         viewTitle,
-        sectionID,
         posts,
         comments,
         logged_In: req.session.loggedIn,

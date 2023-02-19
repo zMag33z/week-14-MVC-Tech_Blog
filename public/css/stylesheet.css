@@ -35,7 +35,7 @@ main{
 }
 
 /* Next to one another on document */
-#topic-title, #by-user, .open, .edit, .close, .click-edit{
+.topic-title, #by-user, .open, .edit, .close, .click-edit{
     display: inline-block;
 }
 
@@ -139,7 +139,7 @@ main{
     color: var(--heading-main-bg-navTxt);
 }
 /* Same Bg colors */
-header, #topic-title, .section-label, .post-comment, #new-post{
+header, .topic-title, .section-label, .post-comment, #new-post{
     background-color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 

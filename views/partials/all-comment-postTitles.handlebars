@@ -1,6 +1,6 @@
             <div class="section-label" data-style="userHov">
-                <h2 id="topic-title">{{post.title}}</h2>
-                <p id="by-user">Posted by: {{user.name}} on {{post.post_date}}</p>
+                <h2 id="{{post.id}}" class="topic-title">{{post.title}}</h2>
+                <p id="by-user">Posted by: {{post.user.name}} on {{post.post_date}}</p>
             </div>
 
             <div class="posts">
