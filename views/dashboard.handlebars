@@ -9,14 +9,15 @@
     <div class="list">
         <div class="list-top">
             <p class="close">-</p>
-            <p class="click-edit">( click post section to edit )</p>
+            <p class="click-edit">( click Post to edit )</p>
         </div>
 
     {{#each posts}}
         <section class="edit-post select">
-            <div class="section-label" data-style="userHov">
-            {{> all-titles}}
-            {{> all-posts}}
+            <div id="edit-this">
+                <div class="section-label" data-style="userHov">
+                {{> all-titles}}
+                {{> all-posts}}
 
     {{/each}}
 
@@ -33,7 +34,7 @@
     <div class="list">
         <div class="list-top">
             <p id="hide-list" class="close">-</p>
-            <p class="click-edit">( click comment section to edit )</p>
+            <p class="click-edit">( click Comment to edit )</p>
         </div>
 
         <section class="edit-comment select">
