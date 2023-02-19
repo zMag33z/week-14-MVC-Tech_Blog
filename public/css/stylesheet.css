@@ -177,7 +177,7 @@ main, #head-title{
   }
   
   /* The Close Button */
-  .close {
+  /* .close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
@@ -189,4 +189,4 @@ main, #head-title{
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+  } */

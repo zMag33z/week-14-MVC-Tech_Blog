@@ -2,55 +2,68 @@ const router = require('express').Router();
 const { Post } = require('../../models');
 
 
-//Had seed ids all off start again manana..
-// router.get('/dashboard', withAuth, async (req, res) => {  
-//     try {
-//       console.log('DASHBOARD', req.session.curr_id);
+router.post('/', async (req, res) => {
+    try {
+      const addPost = await Post.create({
+        // ADD CODE
+      });
+      res.json(addPost);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+
+  router.get('/:id', async (req, res) => {
+    try {
+      const onePost = await Post.findOne(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.json(onePost);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+
+  router.put('/:id', async (req, res) => {
+    try {
+      const [affectedRows] = await Post.update(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
   
-//       const postData = await Post.findAll({
-//         attributes: [
-//           'id',
-//           'title',
-//           'post_text',
-//           'post_date',
-//           'poster_id'
-//         ],
-//         include: [
-//           {
-//             model: User,
-//             attributes: ['name']
-//           },
-//           {
-//             model: Comment,
-//             attributes: ['id', 'post_id', 'comment_text', 'commenter_id', 'comment_date'],
-//             include: [
-//               {
-//                 model: User,
-//                 attributes: ['name']
-//               }
-//             ]
-//           }
-//         ]
-//       });
+      if (affectedRows > 0) {
+        res.status(200).end();
+      } else {
+        res.status(404).end();
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+
+  router.delete('/:id', async (req, res) => {
+    try {
+      const [affectedRows] = Post.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
   
-//       let viewTitle = {
-//         posts: 'View Your Posts',
-//         comments: 'View Your Comments'
-//       }
-  
-//       const posts = postData.map((project) => project.get({ plain: true }));
-  
-//       res.send({
-//         viewTitle,
-//         posts,
-//         logged_In: req.session.loggedIn,
-//       }
-//       );
-//       // res.status(200).json(posts);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+      if (affectedRows > 0) {
+        res.status(200).end();
+      } else {
+        res.status(404).end();
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 
 module.exports = router;
