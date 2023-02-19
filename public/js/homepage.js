@@ -44,3 +44,5 @@ function hideCommentBox(e){
     choice.style.display = 'block';
     addCommentBox.style.display = 'none';
 };
+
+// ADD fetch for POST(creation) of comment to specific post

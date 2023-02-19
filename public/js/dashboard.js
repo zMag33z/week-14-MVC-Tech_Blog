@@ -7,7 +7,7 @@ const replace_attribute = document.querySelectorAll('.post-comment', '[data-styl
         attr.setAttribute('data-style', 'userHov');
     });
 
-//  Event listeners added per post/comment
+//  Event listeners added per post/comment section
 const user_list = document.querySelectorAll('.comments');
     user_list.forEach(postNcomList => {
         postNcomList.firstElementChild.addEventListener('click', showComments);
@@ -30,5 +30,16 @@ function hideComments(e){
     parentPrevSib.style.display = 'block';
 };
 
+//  Event listeners for showing Edit Box  Edits depending on input text value changes, lock on textarea, and produce data depending on path.
+document.querySelector('#new-post').addEventListener('click', showBox);
+document.querySelector('#hide').addEventListener('click', hideBox);
 
-console.log('URL', previous_url);
+function showBox(e){
+    let edit_box = e.target.parentNode.previousElementSibling;
+    edit_box.style.display = 'block';
+};
+
+function hideBox(e){
+    let edit_box = e.target.parentNode.parentNode;
+    edit_box.style.display = 'none';
+};
