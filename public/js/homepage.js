@@ -1,36 +1,46 @@
 // Event listeners per comment show/hide clickable text.  Specific to each parent.
 const commentsTOpost = document.querySelectorAll('.comments');
-const add_comment = document.querySelectorAll('.edit');
 
 commentsTOpost.forEach(comments => {
     comments.firstElementChild.addEventListener('click', showComments);
     comments.nextElementSibling.firstElementChild.firstElementChild.addEventListener('click', hideComments);
-});
-
-add_comment.forEach(add => {
-    add.innerHTML = '[ add a comment ]';
-    add.addEventListener('click', postComment);
+    comments.firstElementChild.nextElementSibling.innerHTML = '[ add a comment ]';
+    comments.firstElementChild.nextElementSibling.addEventListener('click', showCommentBox);
+    comments.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.addEventListener('click', hideCommentBox);
 });
 
 function showComments(e){
-    let targetParent = e.target.parentNode;
-    let parentNextSib = e.target.parentNode.nextElementSibling;
+    let choice = e.target.parentNode;
+    let commentList = e.target.parentNode.nextElementSibling;
 
-    targetParent.style.display = 'none';
-    parentNextSib.style.display = 'block';
+    choice.style.display = 'none';
+    commentList.style.display = 'block';
 };
 
 function hideComments(e){
-    let targetParent = e.target.parentNode.parentNode;
-    let parentPrevSib = e.target.parentNode.parentNode.previousElementSibling;
+    let commentList = e.target.parentNode.parentNode;
+    let choice = e.target.parentNode.parentNode.previousElementSibling;
 
-    targetParent.style.display = 'none';
-    parentPrevSib.style.display = 'block';
+    commentList.style.display = 'none';
+    choice.style.display = 'block';
 };
 
-function postComment(e){
-    const postID = e.target.parentNode.parentNode.children[0].children[0].getAttribute('id');
+function showCommentBox(e){
+  //will go to the post add comment button
+    // const postID = e.target.parentNode.parentNode.children[0].children[0].getAttribute('id');
+    // console.log('HELLO SHOW', postID);
 
+    let choice = e.target.parentNode;
+    let addCommentBox = e.target.parentNode.nextElementSibling.nextElementSibling;
 
-    console.log('POST', e.target.parentNode.parentNode.children[0].children[0].getAttribute('id'));
+    choice.style.display = 'none';
+    addCommentBox.style.display = 'block';
+};
+
+function hideCommentBox(e){
+    let choice = e.target.parentNode.parentNode.previousElementSibling.previousElementSibling;
+    let addCommentBox = e.target.parentNode.parentNode;
+
+    choice.style.display = 'block';
+    addCommentBox.style.display = 'none';
 };
