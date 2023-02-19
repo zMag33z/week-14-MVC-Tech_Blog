@@ -5,7 +5,9 @@ const { Post } = require('../../models');
 router.post('/', async (req, res) => {
     try {
       const addPost = await Post.create({
-        // ADD CODE
+        title: req.body.title,
+        post_text: req.body.text,
+        poster_id: req.session.curr_id
       });
       res.json(addPost);
     } catch (err) {
@@ -30,17 +32,16 @@ router.post('/', async (req, res) => {
 
   router.put('/:id', async (req, res) => {
     try {
-      const [affectedRows] = await Post.update(req.body, {
+      const change = await Post.update(req.body, {
         where: {
           id: req.params.id,
         },
       });
   
-      if (affectedRows > 0) {
-        res.status(200).end();
-      } else {
-        res.status(404).end();
+      if(!change){
+        res.status(404).json({ message: "Post Not Found" }).end();
       }
+      res.status(200).json(change);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -49,17 +50,16 @@ router.post('/', async (req, res) => {
 
   router.delete('/:id', async (req, res) => {
     try {
-      const [affectedRows] = Post.destroy({
+      const remove = Post.destroy({
         where: {
           id: req.params.id,
         },
       });
   
-      if (affectedRows > 0) {
-        res.status(200).end();
-      } else {
-        res.status(404).end();
+      if(!remove){
+        res.status(404).json({ message: "Post Not Found!"}).end();
       }
+      res.status(200).json(remove);      
     } catch (err) {
       res.status(500).json(err);
     }
