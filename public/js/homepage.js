@@ -5,12 +5,12 @@ const add_comment = document.querySelectorAll('.edit');
 commentsTOpost.forEach(comments => {
     comments.firstElementChild.addEventListener('click', showComments);
     comments.nextElementSibling.firstElementChild.firstElementChild.addEventListener('click', hideComments);
-})
+});
 
 add_comment.forEach(add => {
     add.innerHTML = '[ add a comment ]';
-    add.addEventListener('click', postComment)
-})
+    add.addEventListener('click', postComment);
+});
 
 function showComments(e){
     let targetParent = e.target.parentNode;
@@ -29,5 +29,8 @@ function hideComments(e){
 };
 
 function postComment(e){
-    console.log();
+    const postID = e.target.parentNode.parentNode.children[0].children[0].getAttribute('id');
+
+    
+    console.log('POST', e.target.parentNode.parentNode.children[0].children[0].getAttribute('id'));
 }
