@@ -3,7 +3,7 @@
 
   <div class="hide">
     <div class="list-top dark-brd med-text hgt40 pad15">
-      <p id="{{this.id}}" class="close xl-font inline cursor">-</p>
+      <p id="close" class="xl-font inline cursor">-</p>
     </div>
 {{#each comments as |comment|}}
     <div class="post-comment dark-bg med-text hgt40 pad15" data-style="hover">
@@ -11,7 +11,7 @@
     </div>
 
     <div class="list-comments pad15">
-      <p id="user-comment">{{this.comment_text}}</p>
+      <p id="{{this.id}}">{{this.comment_text}}</p>
     </div>
 {{/each}}
 

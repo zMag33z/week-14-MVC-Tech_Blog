@@ -1,5 +1,5 @@
 // Event listeners per comment show/hide clickable text.  Specific to each parent.
-const commentsTOpost = document.querySelectorAll('.comments');
+const commentsTOpost = document.querySelectorAll('#list');
 
 commentsTOpost.forEach(comments => {
     comments.firstElementChild.addEventListener('click', showComments);
@@ -45,4 +45,4 @@ function hideCommentBox(e){
     addCommentBox.style.display = 'none';
 };
 
-// ADD fetch for POST(creation) of comment to specific post
+//fetch request for posting comment to post

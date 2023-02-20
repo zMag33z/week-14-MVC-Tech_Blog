@@ -8,7 +8,7 @@ const replace_attribute = document.querySelectorAll('.post-comment', '[data-styl
     });
 
 //  Events added per post/comment section
-const user_list = document.querySelectorAll('.comments');
+const user_list = document.querySelectorAll('#list');
     user_list.forEach(postNcomList => {
         postNcomList.firstElementChild.addEventListener('click', showComments);
         postNcomList.nextElementSibling.firstElementChild.firstElementChild.addEventListener('click', hideComments);

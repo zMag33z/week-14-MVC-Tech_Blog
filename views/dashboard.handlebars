@@ -2,18 +2,18 @@
         <h2 class="inline dark-bg">{{viewTitle.posts}}</h2>
     </div>
 
-    <div class="comments dark-brd pad15">
+    <div id="list" class="posts dark-brd pad15">
         <p class="underline click-width open inline cursor">posts:  <span id="comment-total">{{posts.length}}</span></p>
     </div>
 
     <div class="hide">
         <div class="list-top dark-brd med-text hgt40 pad15">
-            <p class="close xl-font inline cursor">-</p>
+            <p id="close" class="xl-font inline cursor">-</p>
             <p class="click-edit inline marL">( click Post to edit )</p>
         </div>
 
     {{#each posts}}
-        <section class="edit-post select">
+        <section class="select">
             <div id="post" class="edit-this cursor">
                 <div class="dark-bg med-text pad15 block" data-style="userHov">
                 {{> all-titles}}
@@ -27,13 +27,13 @@
         <h2 class="inline dark-bg">{{viewTitle.comments}}</h2>
     </div>
 
-    <div class="comments dark-brd pad15">
+    <div id="list" class="comments dark-brd pad15">
         <p class="underline click-width open inline cursor">comments:  <span id="comment-total">{{comments.length}}</span></p>
     </div>
 
     <div class="hide">
         <div class="list-top dark-brd med-text hgt40 pad15">
-            <p id="hide-list" class="close xl-font inline cursor">-</p>
+            <p id="close" class="xl-font inline cursor">-</p>
             <p class="click-edit inline marL">( click Comment to edit )</p>
         </div>
 
