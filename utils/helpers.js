@@ -9,7 +9,8 @@ module.exports = {
       return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
         new Date(date).getFullYear()}`;
     },
-    format_id: (value) => {
-      return parseInt(value) + 1;
+    format_id: (index) => {
+      console.log('hitting format')
+      return parseInt(index) + 1;
     }
   };
