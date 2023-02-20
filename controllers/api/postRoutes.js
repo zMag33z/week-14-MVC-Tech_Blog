@@ -15,20 +15,6 @@ router.post('/', async (req, res) => {
   }
   });
 
-// Get single Post by its id
-router.get('/:id', async (req, res) => {
-  try {
-    const onePost = await Post.findOne(req.body, {
-      where: {
-        id: req.params.id,
-      },
-    });
-    res.json(onePost);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 //  Update Post by its id
 router.put('/:id', async (req, res) => {
   try {

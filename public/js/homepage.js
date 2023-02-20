@@ -1,3 +1,6 @@
+//  First Onload
+
+
 // Event listeners per comment show/hide clickable text.  Specific to each parent.
 const commentsTOpost = document.querySelectorAll('#list');
 
@@ -26,15 +29,12 @@ function hideComments(e){
 };
 
 function showCommentBox(e){
-  //will go to the post add comment button
-    // const postID = e.target.parentNode.parentNode.children[0].children[0].getAttribute('id');
-    // console.log('HELLO SHOW', postID);
-
     let choice = e.target.parentNode;
     let addCommentBox = e.target.parentNode.nextElementSibling.nextElementSibling;
 
     choice.style.display = 'none';
     addCommentBox.style.display = 'block';
+
 };
 
 function hideCommentBox(e){
@@ -45,4 +45,41 @@ function hideCommentBox(e){
     addCommentBox.style.display = 'none';
 };
 
-//fetch request for posting comment to post
+//fetch request for Posting comment to post
+const post_comment = document.querySelectorAll('.btn');
+    post_comment.forEach(btn => {
+        btn.addEventListener('click', commentTOdatabase);
+    });
+
+async function commentTOdatabase(e){
+    let information = {
+        post_id: e.target.parentNode.parentNode.parentNode.parentNode.children[0].children[0].id,
+        comment_text: e.target.parentElement.previousElementSibling.children[0].value
+    };
+
+    const response = await fetch('/api/comment/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(information),
+    });
+
+    if (response.ok) {
+        document.location.reload('/');
+      }
+       else {
+        alert('Server Side ERROR!!!');
+      }
+};
+
+window.onload = function (){
+    const add_comment = document.querySelectorAll('.edit');
+    let current = document.getElementById('relevant').value;
+
+    if(!current){
+        add_comment.forEach(addBtn => {
+            addBtn.style.display = 'none';
+        });
+    };
+    
+    console.log('1', current);
+};

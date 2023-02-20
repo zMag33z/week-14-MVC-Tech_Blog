@@ -62,7 +62,9 @@ router.get('/', withAuth, async (req, res) => {
           }
         ]
       });
-  
+      
+      let current = req.session.curr_id;
+
       let viewTitle = {
         posts: 'View Your Posts',
         comments: 'View Your Comments'
@@ -72,6 +74,7 @@ router.get('/', withAuth, async (req, res) => {
       const comments = commentData.map((project) => project.get({ plain: true }));
   
       res.render('dashboard', {
+        current,
         viewTitle,
         posts,
         comments,

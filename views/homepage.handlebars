@@ -4,6 +4,8 @@
     {{> all-posts}}
 {{/each}}
 
+  <input type="hidden" id="relevant" value="{{current}}"/>
+
 {{> script-homepage}}
 {{#if logged_In}}
 {{> script-logout}}
