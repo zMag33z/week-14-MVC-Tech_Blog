@@ -17,6 +17,10 @@ body{
     background-color: var(--heading-main-bg-navTxt);
 }
 
+main{
+    background-color: transparent;
+}
+
 /* Personal fonts */
 h1{
     font-size: 44px;

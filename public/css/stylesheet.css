@@ -4,7 +4,7 @@ header{
     padding: 20px 60px;
 }
 
-.nav-head{
+.flex{
     display: flex;
     flex-wrap: wrap;
 
@@ -29,25 +29,29 @@ main{
     padding: 20px 60px 135px 60px;
 }
 
+.new-post{
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
 /* Contains each post/form */
 .container{
     border: 3px solid var(--header-mainSectionHeads-bg-MostTxt);
     margin-bottom: 20px;
 }
 
-/* Next to one another on document */
-.topic-title, #by-user, .open, .edit, .close, .click-edit{
-    display: inline-block;
-}
-
-#by-user{
-    font-size: 15px;
-    float: right;
-}
-
-/* user forms signup/login */
 #info{
     padding-bottom: 15px;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+    border: 3px solid rgb(89, 177, 224);
+    padding: 5px;
 }
 
 .box{
@@ -60,12 +64,24 @@ main{
     border: none;
 }
 
+.close, .xclose{
+    font-weight: 900;
+    line-height: 0;
+}
+
+.click-width{
+    width: 110px;
+}
+
 .create{
     padding-top: 15px;
 }
 
-/* Posts and Comments to Posts*/
-.post-comment, .list-top{
+.inline{
+    display: inline-block;
+}
+
+.hgt40{
     height: 40px;
 }
 
@@ -73,108 +89,84 @@ main{
     text-decoration: underline;
 }
 
-.comments, .list-top{
+.dark-brd{
     border-top: 2px solid var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-.click-width{
-    width: 110px;
-}
-
-.close, .xclose{
-    font-weight: 900;
-    font-size: 44px;
-    line-height: 0;
-}
-
-.xclose{
+.fltR{
     float: right;
-    top: 5px;
 }
 
-/* Dashboard create post */
-.new-post{
-    position: absolute;
-    left: 0;
-    bottom: 40px;
-    width: 100%;
-    text-align: center;
-}
-
-#new-post{
-    font-size: 32px;
-}
-
-.list, .comment-list, .add-comment, #hide{
+.hide{
     display: none;
 }
 
 .click-edit{
-    margin-left: 40px;
     padding-bottom: 5px;
 }
 
-#post-title{
-    font-size: 18px;
+.marL{
+    margin-left:40px;
 }
 
-#comment-to{
-    font-size: 16px;
-}
-
-textarea{
-    resize: none;
-    width: 100%;
-    font-size: 16px;
-    border: 3px solid rgb(89, 177, 224);
-    padding: 5px;
-}
-
-/* Border radius */
-#head-title, .container, .btn, #new-post{
+.brd-rad{
     border-radius: 5px;
 }
 
-/* padding and margin sharings */
-.section-label, .form, .posts, .comments, .post-comment, .list-comments, #new-post, .list-top{
+.pad15{
     padding: 15px;
 }
 
-/* Share Button features */
-.btn, .open, .close, #new-post, .edit, .xclose, .edit-this{
+.cursor{
     cursor: pointer;
 }
 
+.block{
+    pointer-events: none;
+}
+.xs-font{
+    font-size: 15px;
+}
+
+.s-font, textarea{
+    font-size: 18px;
+}
+
+.m-font{
+    font-size: 20px;
+}
+
+.l-font{
+    font-size: 32px;
+}
+
+.xl-font{
+    font-size: 44px;
+}
 /* Color Sharings */
 /* Same font colors */
-#head-title, .create, .signup, .box, label, .edit{
+.dark-text, .create, .signup, .box, label{
     color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-.signup:hover, .section-label, .post-comment, .nav-link:hover, .open:hover, #new-post, .list-top, .edit:hover{
+.med-text, .signup:hover, .nav-link:hover, .open:hover, .edit:hover{
     color: var(--mainSectionHeads-txt-headingShadow);
 }
 
-.btn:hover, .nav-link, .nav-head, .container:hover [data-style="hover"], #new-post:hover{
+.lgt-text, .nav-link, .btn:hover, .container:hover [data-style="hover"], #new-post:hover, .select:hover [data-style="userHov"]{
     color: var(--heading-main-bg-navTxt);
 }
-.select:hover [data-style="userHov"]{
-    color: var(--heading-main-bg-navTxt);
-}
-/* Same Bg colors */
-header, .topic-title, .section-label, .post-comment, #new-post{
+
+/* Bg colors */
+.dark-bg{
     background-color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-.btn{
+.med-bg{
     background-color: var(--mainSectionHeads-txt-headingShadow);
 }
 
-main, #head-title{
+.light-bg{
     background-color: var(--heading-main-bg-navTxt);
 }
 
-/* create class .block  add to areas need to block pointer events */
-.block, .section-label{
-    pointer-events: none;
-}

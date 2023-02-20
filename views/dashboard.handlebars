@@ -1,21 +1,21 @@
 {{> section-label}}
-        <h2 class="topic-title">{{viewTitle.posts}}</h2>
+        <h2 class="inline dark-bg">{{viewTitle.posts}}</h2>
     </div>
 
-    <div class="comments">
-        <p class="underline click-width open">posts:  <span id="comment-total">{{posts.length}}</span></p>
+    <div class="comments dark-brd pad15">
+        <p class="underline click-width open inline cursor">posts:  <span id="comment-total">{{posts.length}}</span></p>
     </div>
 
-    <div class="list">
-        <div class="list-top">
-            <p class="close">-</p>
-            <p class="click-edit">( click Post to edit )</p>
+    <div class="hide">
+        <div class="list-top dark-brd med-text hgt40 pad15">
+            <p class="close xl-font inline cursor">-</p>
+            <p class="click-edit inline marL">( click Post to edit )</p>
         </div>
 
     {{#each posts}}
         <section class="edit-post select">
-            <div id="post" class="edit-this">
-                <div class="section-label" data-style="userHov">
+            <div id="post" class="edit-this cursor">
+                <div class="dark-bg med-text pad15 block" data-style="userHov">
                 {{> all-titles}}
                 {{> all-posts}}
 
@@ -24,17 +24,17 @@
 {{> close-section}}
 
 {{> section-label}}
-        <h2 class="topic-title">{{viewTitle.comments}}</h2>
+        <h2 class="inline dark-bg">{{viewTitle.comments}}</h2>
     </div>
 
-    <div class="comments">
-        <p class="underline click-width open">comments:  <span id="comment-total">{{comments.length}}</span></p>
+    <div class="comments dark-brd pad15">
+        <p class="underline click-width open inline cursor">comments:  <span id="comment-total">{{comments.length}}</span></p>
     </div>
 
-    <div class="list">
-        <div class="list-top">
-            <p id="hide-list" class="close">-</p>
-            <p class="click-edit">( click Comment to edit )</p>
+    <div class="hide">
+        <div class="list-top dark-brd med-text hgt40 pad15">
+            <p id="hide-list" class="close xl-font inline cursor">-</p>
+            <p class="click-edit inline marL">( click Comment to edit )</p>
         </div>
 
         <section class="edit-comment select">

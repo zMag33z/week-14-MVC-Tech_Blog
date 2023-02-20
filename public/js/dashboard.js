@@ -46,8 +46,6 @@ function editPost(e){
     let content = e.target.children[1].children[0].innerHTML;
 
 
-    console.log('Title', title);
-    console.log('Text', content);
     console.log('HELLO EDIT POST');
 };
 
@@ -56,7 +54,6 @@ function editComment(e){
     let comment = e.target.children[1].children[0].innerHTML;
 
 
-    console.log('title', title, '\ncomment', comment);
     console.log('HELLO EDIT COMMENT');
 };
 
@@ -70,6 +67,7 @@ function showBox(e){
 };
 
 function hideBox(e){
-    let edit_box = e.target.parentNode.parentNode;
-    edit_box.style.display = 'none';
+    console.log('what happened?', e.target)
+    // let edit_box = e.target.parentNode.parentNode;
+    // edit_box.style.display = 'none';
 };

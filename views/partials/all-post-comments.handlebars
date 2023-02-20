@@ -1,16 +1,16 @@
   </div>
   {{> all-count}}
 
-  <div class="comment-list">
-    <div class="list-top">
-      <p id="{{this.id}}" class="close">-</p>
+  <div class="hide">
+    <div class="list-top dark-brd med-text hgt40 pad15">
+      <p id="{{this.id}}" class="close xl-font inline cursor">-</p>
     </div>
 {{#each comments as |comment|}}
-    <div class="post-comment" data-style="hover">
-      <p id="by-user">Comment by: {{this.user.name}} on {{this.comment_date}}</p>
+    <div class="post-comment dark-bg med-text hgt40 pad15" data-style="hover">
+      <p id="by-user" class="inline xs-font fltR">Comment by: {{this.user.name}} on {{this.comment_date}}</p>
     </div>
 
-    <div class="list-comments">
+    <div class="list-comments pad15">
       <p id="user-comment">{{this.comment_text}}</p>
     </div>
 {{/each}}
