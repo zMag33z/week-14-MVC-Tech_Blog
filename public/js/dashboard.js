@@ -39,19 +39,24 @@ const edit_postORcomment = document.querySelectorAll('.edit-this');
         }else{
             pORc.addEventListener('click', editComment);
         }
-
-
     });
 
 function editPost(e){
-    console.log(e.target.id);
+    let title = e.target.children[0].children[0].innerHTML;
+    let content = e.target.children[1].children[0].innerHTML;
 
+
+    console.log('Title', title);
+    console.log('Text', content);
     console.log('HELLO EDIT POST');
 };
 
 function editComment(e){
-    console.log(e.target.id);
+    let title = e.target.previousElementSibling.previousElementSibling.children[0].innerHTML;
+    let comment = e.target.children[1].children[0].innerHTML;
 
+
+    console.log('title', title, '\ncomment', comment);
     console.log('HELLO EDIT COMMENT');
 };
 
