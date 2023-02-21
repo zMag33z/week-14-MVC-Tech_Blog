@@ -10,7 +10,7 @@ const visible = document.querySelectorAll('#show');
 const edit_box = document.querySelector('#hide');
 const box_Title = document.getElementsByName('post')[0];
 const box_content = document.getElementsByName('content')[0];
-const submit_btn = document.getElementById('from');
+const submit_btn = document.querySelector('.submit');
 
 // Data attribute change for Proper hover effect
 const replace_attribute = document.querySelectorAll('.post-comment', '[data-style="hover"]');
@@ -31,9 +31,6 @@ function showList(e){
 
     targetParent.style.display = 'none';
     parentNextSib.style.display ='block';
-
-
-    console.log('showList', targetParent, parentNextSib);
 };
 
 function hideList(e){
@@ -42,7 +39,6 @@ function hideList(e){
 
     targetParent.style.display = 'none';
     parentPrevSib.style.display = 'block';
-
 };
 
 // Events for Editing a Post or Comment
@@ -57,7 +53,6 @@ const edit_postORcomment = document.querySelectorAll('.edit-this');
     });
 
 function textarea(){
-    console.log(submit_btn);
     if(submit_btn.id === 'comment'){
         box_Title.disabled = true;
     }else{
@@ -65,9 +60,9 @@ function textarea(){
     }
 };
 
-async function editPost(e){
+function editPost(e){
     document.getElementById('box-title').innerHTML = 'Edit Post';
-    submit_btn.setAttribute('id', e.target.id);
+    submit_btn.id = e.target.id;
 
     let targetID = parseInt(e.target.children[0].children[0].id);
     // script tag injected data POSTS
@@ -85,7 +80,7 @@ async function editPost(e){
 
 function editComment(e){
     document.getElementById('box-title').innerHTML = 'Edit Comment';
-    submit_btn.setAttribute('id', e.target.id);
+    submit_btn.id = e.target.id;
 
     let targetID = parseInt(e.target.children[1].children[0].id);
     // script tag injected data COMMENTS
@@ -103,7 +98,7 @@ function editComment(e){
 
 //  Events for showing Edit Box  This listener passes its id for query upon fetch.
 document.querySelector('#new-post').addEventListener('click', e => {
-    submit_btn.setAttribute('id', e.target.id);
+    submit_btn.id = e.target.id;
 
     let info = {
         title: '',
@@ -118,10 +113,8 @@ function showBox(info){
     visible.forEach(shown => {
         shown.style.display = 'none';
     });
-
     box_Title.value = info.title;
     box_content.value = info.content;
-
 };
 
 // Events for hiding the Edit box.
@@ -136,24 +129,28 @@ function hideBox(){
 };
 
 //  Events for Fetch function Dependant upon Event origin.
-// submit_btn.addEventListener('click', retrieveFetch);
+submit_btn.addEventListener('click', retrieveFetch);
 
-async function retrieveFetch(request){
+function retrieveFetch(request){
     console.log('HELLO', submit_btn);
-    // switch(submit_btn.id){
-    //     case 'new-post': {
- 
-    //     }
-    //     case 'post': {
 
-    //     }
-    //     case 'comment': {
+    switch(submit_btn.id){
+        case 'new-post': {
+            console.log('new');
+            break;
+        }
+        case 'post': {
+            console.log('post');
+            break;
+        }
+        case 'comment': {
+            console.log('comment');
+            break;
+        }
+    }
 
-    //     }
-    // }
 
-
-
+console.log('out of switch');
 
     // const response = await fetch('/api/comment/', {
     //     method: 'POST',

@@ -10,11 +10,9 @@ module.exports = {
         new Date(date).getFullYear()}`;
     },
     format_id: (index) => {
-      console.log('hitting format')
       return parseInt(index) + 1;
     },
     json: function(obj) {
       return JSON.stringify(obj);
-
     }
   };
