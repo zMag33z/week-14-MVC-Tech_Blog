@@ -80,6 +80,4 @@ window.onload = function (){
             addBtn.style.display = 'none';
         });
     };
-    
-    console.log('1', current);
 };
