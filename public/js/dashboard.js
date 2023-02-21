@@ -60,7 +60,11 @@ function textarea(){
     }
 };
 
+//  Information to pass to request.
+var info;
+
 function editPost(e){
+    info = '';
     document.getElementById('box-title').innerHTML = 'Edit Post';
     submit_btn.id = e.target.id;
 
@@ -68,7 +72,7 @@ function editPost(e){
     // script tag injected data POSTS
     let pullPost =  POSTS.find(post => post.id === targetID);
 
-    let info = {
+    info = {
         id: pullPost.id,
         title: pullPost.title,
         content: pullPost.post_text,
@@ -79,6 +83,7 @@ function editPost(e){
 };
 
 function editComment(e){
+    info = '';
     document.getElementById('box-title').innerHTML = 'Edit Comment';
     submit_btn.id = e.target.id;
 
@@ -86,21 +91,22 @@ function editComment(e){
     // script tag injected data COMMENTS
     let pullComment =  COMMENTS.find(comment => comment.id === targetID);
 
-    let info = {
+    info = {
         id: pullComment.id,
         title: pullComment.post.title,
         content: pullComment.comment_text,
         commenter_id: current,
-    };    
+        post_id: pullComment.post.id,
+    };
     textarea();
     showBox(info);
 };
 
-//  Events for showing Edit Box  This listener passes its id for query upon fetch.
+//  Events for showing Edit Box 
 document.querySelector('#new-post').addEventListener('click', e => {
     submit_btn.id = e.target.id;
 
-    let info = {
+    info = {
         title: '',
         content: '',
     };
@@ -129,10 +135,19 @@ function hideBox(){
 };
 
 //  Events for Fetch function Dependant upon Event origin.
-submit_btn.addEventListener('click', retrieveFetch);
+submit_btn.addEventListener('click', (e) => {
+    if(submit_btn.id === 'new-post'){
+        info.poster_id = current;
+    }
+    info.title = document.getElementsByName('post')[0].value;
+    info.content = document.getElementsByName('content')[0].value;
+
+    let request = info;
+    retrieveFetch(request);
+});
 
 function retrieveFetch(request){
-    console.log('HELLO', submit_btn);
+
 
     switch(submit_btn.id){
         case 'new-post': {
@@ -150,7 +165,7 @@ function retrieveFetch(request){
     }
 
 
-console.log('out of switch');
+console.log('out of switch', request);
 
     // const response = await fetch('/api/comment/', {
     //     method: 'POST',
