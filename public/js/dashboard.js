@@ -8,6 +8,7 @@ const visible = document.querySelectorAll('#show');
 const edit_box = document.querySelector('#hide');
 const box_Title = document.getElementsByName('post')[0];
 const box_content = document.getElementsByName('content')[0];
+const submit_btn = document.getElementById('from');
 
 // Data attribute change for Proper hover effect
 const replace_attribute = document.querySelectorAll('.post-comment', '[data-style="hover"]');
@@ -28,6 +29,7 @@ function showList(e){
 
     targetParent.style.display = 'none';
     parentNextSib.style.display ='block';
+    console.log(submit_btn);
 };
 
 function hideList(e){
@@ -36,6 +38,7 @@ function hideList(e){
 
     targetParent.style.display = 'none';
     parentPrevSib.style.display = 'block';
+    console.log(submit_btn);
 };
 
 // Events for Editing a Post or Comment
@@ -49,9 +52,12 @@ const edit_postORcomment = document.querySelectorAll('.edit-this');
         }
     });
 
-function editPost(e){
-    let from = e.target.id;
+// maybe retrieve datafunction
+
+async function editPost(e){
     document.getElementById('box-title').innerHTML = 'Edit Post';
+    submit_btn.setAttribute('id', e.target.id);
+
 
     let title = e.target.children[0].children[0].innerHTML;
     let content = e.target.children[1].children[0].innerHTML;
@@ -60,14 +66,14 @@ function editPost(e){
         title: title,
         content: content,
     };
-
-    showBox(from, info);
+    showBox(info);
+    console.log(submit_btn);
+    console.log('NODE', e.target.node)
 };
 
 function editComment(e){
-    let from = e.target.id;
-
     document.getElementById('box-title').innerHTML = 'Edit Comment';
+    submit_btn.setAttribute('id', e.target.id);
 
     let title = e.target.previousElementSibling.previousElementSibling.children[0].innerHTML;
     let comment = e.target.children[1].children[0].innerHTML;
@@ -75,51 +81,53 @@ function editComment(e){
     let info = {
         title: title,
         content: comment,
-    }
-
-    showBox(from, info);
+    };
+    showBox(info);
+    console.log(submit_btn);
 };
 
-// async function retrieveFetch(request){
-
-//     const request = {
-//         title: box_Title,
-//         post_text: box_content,
-//     };
-
-//     console.log(request);
-//     const response = await fetch('/api/comment/', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify(information),
-//     });
-
-//     if (response.ok) {
-//         document.location.reload('/');
-//       }
-//        else {
-//         alert('Server Side ERROR!!!');
-//       }
-// };
-
-//  Events for showing Edit Box  Edits depending on input text value changes, lock on textarea, and produce data depending on path.
+//  Events for showing Edit Box  This listener passes its id for query upon fetch.
 document.querySelector('#new-post').addEventListener('click', e => {
-    let from = e.target.id;
+    submit_btn.setAttribute('id', e.target.id);
+
     let info = {
         title: '',
         content: '',
     };
-    showBox(from, info);
+    showBox(info);
+    console.log(submit_btn);
 });
 
+function showBox(info){
+    edit_box.style.display = 'block';
+    visible.forEach(shown => {
+        shown.style.display = 'none';
+    });
+
+    box_Title.value = info.title;
+    box_content.value = info.content;
+    console.log(submit_btn);
+};
+
+// Events for hiding the Edit box.
 document.querySelector('.close-box').addEventListener('click', hideBox);
 
-function showBox(from, info){
+function hideBox(){
+    edit_box.style.display = 'none';
+    visible.forEach(shown => {
+        shown.style.display = 'block';
+    });
+    console.log(submit_btn);
+};
+
+//  Events for Fetch function Dependant upon Event origin.
+// submit_btn.addEventListener('click', retrieveFetch);
+
+async function retrieveFetch(request){
 
     // switch(from){
     //     case 'new-post': {
-    //         box_Title.value = info.title;
-    //         box_content.value = info.content;
+ 
     //     }
     //     case 'post': {
 
@@ -129,21 +137,24 @@ function showBox(from, info){
     //     }
     // }
 
-    box_Title.value = info.title;
-    box_content.value = info.content;
+console.log('HELLO', submit_btn);
 
-    edit_box.style.display = 'block';
-    visible.forEach(shown => {
-        shown.style.display = 'none';
-    });
+
+    // const response = await fetch('/api/comment/', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(information),
+    // });
+
+    // if (response.ok) {
+    //     document.location.reload('/');
+    //   }
+    //    else {
+    //     alert('Server Side ERROR!!!');
+    //   }
 };
 
-function hideBox(){
-
-    edit_box.style.display = 'none';
-    visible.forEach(shown => {
-        shown.style.display = 'block';
-    });
-};
 
 
+
+/*  MaG33  */

@@ -1,9 +1,20 @@
 //  First Onload
+//  Hide add comment link if not logged in. Current is actually current user id.
+window.onload = function (){
+    const add_comment = document.querySelectorAll('.edit');
+    let current = document.getElementById('relevant').value;
 
+    if(!current){
+        add_comment.forEach(addBtn => {
+            addBtn.style.display = 'none';
+        });
+    };
+};
 
 // Event listeners per comment show/hide clickable text.  Specific to each parent.
 const commentsTOpost = document.querySelectorAll('#list');
 
+//  For each one of these sections add a listener where needed.
 commentsTOpost.forEach(comments => {
     comments.firstElementChild.addEventListener('click', showComments);
     comments.nextElementSibling.firstElementChild.firstElementChild.addEventListener('click', hideComments);
@@ -11,7 +22,7 @@ commentsTOpost.forEach(comments => {
     comments.firstElementChild.nextElementSibling.addEventListener('click', showCommentBox);
     comments.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.addEventListener('click', hideCommentBox);
 });
-
+//  All comment lists within each Post.
 function showComments(e){
     let choice = e.target.parentNode;
     let commentList = e.target.parentNode.nextElementSibling;
@@ -28,6 +39,7 @@ function hideComments(e){
     choice.style.display = 'block';
 };
 
+//  Add comment to post box.
 function showCommentBox(e){
     let choice = e.target.parentNode;
     let addCommentBox = e.target.parentNode.nextElementSibling.nextElementSibling;
@@ -45,7 +57,7 @@ function hideCommentBox(e){
     addCommentBox.style.display = 'none';
 };
 
-//fetch request for Posting comment to post
+//  Events for fetch request- Posting comment to post
 const post_comment = document.querySelectorAll('.btn');
     post_comment.forEach(btn => {
         btn.addEventListener('click', commentTOdatabase);
@@ -71,13 +83,5 @@ async function commentTOdatabase(e){
       }
 };
 
-window.onload = function (){
-    const add_comment = document.querySelectorAll('.edit');
-    let current = document.getElementById('relevant').value;
 
-    if(!current){
-        add_comment.forEach(addBtn => {
-            addBtn.style.display = 'none';
-        });
-    };
-};
+/*  MaG33  */
