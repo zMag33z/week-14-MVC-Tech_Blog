@@ -1,3 +1,5 @@
+/* Data injected into the script tag through handlebars for quicker load to edit boxes */
+
 //  Dashboard Title
 const dash_Title = document.querySelector('#head-title').innerHTML = 'Dashboard';
 
@@ -29,7 +31,9 @@ function showList(e){
 
     targetParent.style.display = 'none';
     parentNextSib.style.display ='block';
-    console.log(submit_btn);
+
+
+    console.log('showList', targetParent, parentNextSib);
 };
 
 function hideList(e){
@@ -38,7 +42,7 @@ function hideList(e){
 
     targetParent.style.display = 'none';
     parentPrevSib.style.display = 'block';
-    console.log(submit_btn);
+
 };
 
 // Events for Editing a Post or Comment
@@ -52,38 +56,49 @@ const edit_postORcomment = document.querySelectorAll('.edit-this');
         }
     });
 
-// maybe retrieve datafunction
+function textarea(){
+    console.log(submit_btn);
+    if(submit_btn.id === 'comment'){
+        box_Title.disabled = true;
+    }else{
+        box_Title.disabled = false;
+    }
+};
 
 async function editPost(e){
     document.getElementById('box-title').innerHTML = 'Edit Post';
     submit_btn.setAttribute('id', e.target.id);
 
-
-    let title = e.target.children[0].children[0].innerHTML;
-    let content = e.target.children[1].children[0].innerHTML;
+    let targetID = parseInt(e.target.children[0].children[0].id);
+    // script tag injected data POSTS
+    let pullPost =  POSTS.find(post => post.id === targetID);
 
     let info = {
-        title: title,
-        content: content,
+        id: pullPost.id,
+        title: pullPost.title,
+        content: pullPost.post_text,
+        poster_id: current,
     };
+    textarea();
     showBox(info);
-    console.log(submit_btn);
-    console.log('NODE', e.target.node)
 };
 
 function editComment(e){
     document.getElementById('box-title').innerHTML = 'Edit Comment';
     submit_btn.setAttribute('id', e.target.id);
 
-    let title = e.target.previousElementSibling.previousElementSibling.children[0].innerHTML;
-    let comment = e.target.children[1].children[0].innerHTML;
+    let targetID = parseInt(e.target.children[1].children[0].id);
+    // script tag injected data COMMENTS
+    let pullComment =  COMMENTS.find(comment => comment.id === targetID);
 
     let info = {
-        title: title,
-        content: comment,
-    };
+        id: pullComment.id,
+        title: pullComment.post.title,
+        content: pullComment.comment_text,
+        commenter_id: current,
+    };    
+    textarea();
     showBox(info);
-    console.log(submit_btn);
 };
 
 //  Events for showing Edit Box  This listener passes its id for query upon fetch.
@@ -94,8 +109,8 @@ document.querySelector('#new-post').addEventListener('click', e => {
         title: '',
         content: '',
     };
+    textarea();
     showBox(info);
-    console.log(submit_btn);
 });
 
 function showBox(info){
@@ -106,7 +121,7 @@ function showBox(info){
 
     box_Title.value = info.title;
     box_content.value = info.content;
-    console.log(submit_btn);
+
 };
 
 // Events for hiding the Edit box.
@@ -117,15 +132,15 @@ function hideBox(){
     visible.forEach(shown => {
         shown.style.display = 'block';
     });
-    console.log(submit_btn);
+
 };
 
 //  Events for Fetch function Dependant upon Event origin.
 // submit_btn.addEventListener('click', retrieveFetch);
 
 async function retrieveFetch(request){
-
-    // switch(from){
+    console.log('HELLO', submit_btn);
+    // switch(submit_btn.id){
     //     case 'new-post': {
  
     //     }
@@ -137,7 +152,7 @@ async function retrieveFetch(request){
     //     }
     // }
 
-console.log('HELLO', submit_btn);
+
 
 
     // const response = await fetch('/api/comment/', {
@@ -153,6 +168,8 @@ console.log('HELLO', submit_btn);
     //     alert('Server Side ERROR!!!');
     //   }
 };
+
+
 
 
 

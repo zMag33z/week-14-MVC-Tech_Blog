@@ -1,5 +1,11 @@
     </main>
 
+  <script  id="data" type="text/javascript">
+    var POSTS = {{{json posts}}}; 
+    var COMMENTS = {{{json comments}}};
+    var current = {{current}};
+  </script>
+
   <script src="/js/dashboard.js"></script>
 
   {{> script-logout}}

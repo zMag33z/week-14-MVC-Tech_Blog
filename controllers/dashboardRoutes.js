@@ -72,7 +72,7 @@ router.get('/', withAuth, async (req, res) => {
 
       const posts = postData.map((project) => project.get({ plain: true }));
       const comments = commentData.map((project) => project.get({ plain: true }));
-  
+
       res.render('dashboard', {
         current,
         viewTitle,
