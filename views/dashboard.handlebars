@@ -39,7 +39,9 @@
 
         <section class="edit-comment select">
             {{#each comments}}
+            {{#if (equal_to @index)}}
             {{> all-comment-postTitles}}
+            {{/if}}
             {{> all-comments}}
             {{/each}}
         </section>        

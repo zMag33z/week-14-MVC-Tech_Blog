@@ -77,6 +77,7 @@ router.get('/', withAuth, async (req, res) => {
       const comments = commentData.map((project) => project.get({ plain: true }));
 
       res.render('dashboard', {
+        capture: false,
         current,
         viewTitle,
         posts,

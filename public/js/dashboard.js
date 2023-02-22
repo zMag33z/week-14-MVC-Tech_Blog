@@ -192,8 +192,4 @@ async function retrieveFetch(info){
 };
 
 
-
-
-
-
 /*  MaG33  */
