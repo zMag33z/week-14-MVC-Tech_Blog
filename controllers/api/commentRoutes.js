@@ -10,7 +10,6 @@ router.post('/', withAuth, async (req, res) => {
         commenter_id: req.session.curr_id,
         post_id: req.body.post_id
       });
-      res.redirect('/');
       res.status(200).json(addComment);
     } catch (err) {
       res.status(500).json(err);
@@ -20,27 +19,26 @@ router.post('/', withAuth, async (req, res) => {
 //  Update Comment by its id
   router.put('/:id', withAuth, async (req, res) => {
     try {
-      console.log('HELLO', req.body, req.params.id);
-      // const editComment = await Comment.update(req.body, {
-      //   comment_text: req.body.comment_text,
-      //   where: {
-      //     id: req.params.id,
-      //   },
-      // });
+      const editComment = await Comment.update(req.body, {
+        comment_text: req.body.comment_text,
+        where: {
+          id: req.params.id,
+        },
+      });
   
-      // if(!editComment){
-      //   res.status(404).json({ message: "Comment Not Found"}).end();
-      // }
-      // res.status(200).json(editComment);
+      if(!editComment){
+        res.status(404).json({ message: "Comment Not Found"}).end();
+      }
+      res.status(200).json(editComment);
     } catch (err) {
-      // res.status(500).json(err);
+      res.status(500).json(err);
     }
   });
 
 //  Delete Comment by its id
   router.delete('/:id', withAuth, async (req, res) => {
     try {
-      console.log('HELLO', req.params.id);
+      console.log('HELLO delete', req.params.id);
       // const remove = Comment.destroy({
       //   where: {
       //     id: req.params.id,

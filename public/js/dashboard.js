@@ -52,6 +52,7 @@ const edit_postORcomment = document.querySelectorAll('.edit-this');
         }
     });
 
+//  Edit comment shows post title, here textarea gets locked.
 function textarea(){
     if(submit_btn.id === 'edit-comment'){
         box_Title.disabled = true;
@@ -60,7 +61,7 @@ function textarea(){
     }
 };
 
-//  Information to pass to request.
+//  Information being gather for request.
 var info;
 
 function editPost(e){
@@ -140,7 +141,6 @@ submit_btn.addEventListener('click', (e) => {
     info.title = document.getElementsByName('post')[0].value;
     info.content = document.getElementsByName('content')[0].value;
 
-
     retrieveFetch(info);
 });
 
@@ -157,7 +157,6 @@ async function retrieveFetch(info){
                 title: info.title,
                 post_text: info.content,                
             };
-            console.log('new', request);
             break;
         }
         case 'edit-post': {
@@ -166,23 +165,18 @@ async function retrieveFetch(info){
             request = {
                 title: info.title,
                 post_text: info.content,
-            }
-            console.log('post', request);
+            };
             break;
         }
         case 'edit-comment': {
-            path = `/api/post/${info.id}`;
+            path = `/api/comment/${info.id}`;
             method = 'PUT';
             request = {
                 comment_text: info.content,
-            }
-            console.log('comment', request);
+            };
             break;
         }
     }
-
-
-    console.log('out of switch');
 
     const response = await fetch(path, {
         method: method,
@@ -190,11 +184,11 @@ async function retrieveFetch(info){
         body: JSON.stringify(request),
     });
 
-    // if(response.ok){
-    //     document.location.reload('/dashboard');
-    //   }else{
-    //     alert('Server Side ERROR!!!');
-    //   }
+    if(response.ok){
+        document.location.reload('/dashboard');
+      }else{
+        alert('Server Side ERROR!!!');
+      }
 };
 
 

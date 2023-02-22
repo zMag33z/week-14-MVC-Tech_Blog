@@ -10,7 +10,7 @@
         </div>
 
         <div id="info">
-            <textarea id="post-title" class="m-font" name="post" rows="1"></textarea>
+            <textarea id="post-title" class="m-font" name="post" rows="1" onclick="this.select()" required></textarea>
         </div>
 
         <div id="info">
@@ -18,11 +18,11 @@
         </div>
 
         <div id="info">
-            <textarea id="comment-to" class="s-font" name="content" rows="5"></textarea>
+            <textarea id="comment-to" class="s-font" name="content" rows="5" onclick="this.select()" required></textarea>
         </div>
 
         <div>
-            <button id="from" class="btn med-bg dark-text brd-rad cursor submit">Submit</button>
+            <input id="from" class="btn med-bg brd-rad cursor submit" type="submit" value="Submit">
         </div>
     </div>
 </section>
