@@ -45,7 +45,7 @@ function hideList(e){
 const edit_postORcomment = document.querySelectorAll('.edit-this');
     edit_postORcomment.forEach(pORc => {
         let editType = pORc.getAttribute('id');
-        if(editType === 'post'){
+        if(editType === 'edit-post'){
             pORc.addEventListener('click', editPost);
         }else{
             pORc.addEventListener('click', editComment);
@@ -53,7 +53,7 @@ const edit_postORcomment = document.querySelectorAll('.edit-this');
     });
 
 function textarea(){
-    if(submit_btn.id === 'comment'){
+    if(submit_btn.id === 'edit-comment'){
         box_Title.disabled = true;
     }else{
         box_Title.disabled = false;
@@ -64,7 +64,6 @@ function textarea(){
 var info;
 
 function editPost(e){
-    info = '';
     document.getElementById('box-title').innerHTML = 'Edit Post';
     submit_btn.id = e.target.id;
 
@@ -83,7 +82,6 @@ function editPost(e){
 };
 
 function editComment(e){
-    info = '';
     document.getElementById('box-title').innerHTML = 'Edit Comment';
     submit_btn.id = e.target.id;
 
@@ -142,41 +140,59 @@ submit_btn.addEventListener('click', (e) => {
     info.title = document.getElementsByName('post')[0].value;
     info.content = document.getElementsByName('content')[0].value;
 
-    let request = info;
-    retrieveFetch(request);
+
+    retrieveFetch(info);
 });
 
-function retrieveFetch(request){
-
+async function retrieveFetch(info){
+    let path;
+    let method;
+    let request;
 
     switch(submit_btn.id){
         case 'new-post': {
-            console.log('new');
+            path = '/api/post/';
+            method = 'POST';
+            request = {
+                title: info.title,
+                post_text: info.content,                
+            };
+            console.log('new', request);
             break;
         }
-        case 'post': {
-            console.log('post');
+        case 'edit-post': {
+            path = `/api/post/${info.id}`;
+            method = 'PUT';
+            request = {
+                title: info.title,
+                post_text: info.content,
+            }
+            console.log('post', request);
             break;
         }
-        case 'comment': {
-            console.log('comment');
+        case 'edit-comment': {
+            path = `/api/post/${info.id}`;
+            method = 'PUT';
+            request = {
+                comment_text: info.content,
+            }
+            console.log('comment', request);
             break;
         }
     }
 
 
-console.log('out of switch', request);
+    console.log('out of switch');
 
-    // const response = await fetch('/api/comment/', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(information),
-    // });
+    const response = await fetch(path, {
+        method: method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(request),
+    });
 
-    // if (response.ok) {
-    //     document.location.reload('/');
-    //   }
-    //    else {
+    // if(response.ok){
+    //     document.location.reload('/dashboard');
+    //   }else{
     //     alert('Server Side ERROR!!!');
     //   }
 };
