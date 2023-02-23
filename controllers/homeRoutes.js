@@ -33,11 +33,15 @@ router.get('/', async (req, res) => {
       ]
     });
 
+    let thisURL = '/home';
+    const checkURL = thisURL === '/home';
+
     let current = req.session.curr_id;
 
     const posts = postData.map((project) => project.get({ plain: true }));
 
     res.render('homepage', {
+      checkURL,
       current,
       posts,
       logged_In: req.session.loggedIn,

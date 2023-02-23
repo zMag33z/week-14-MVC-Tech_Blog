@@ -28,11 +28,17 @@ module.exports = {
         nextComment = options.data.root.comments[j].post.id;
       }
       if(currComPostID < nextComment || lastComment){
-        console.log('Current', currComPostID,'\nLast', lastComment,'\nNext', nextComment);
-        console.log('LESS THAN', currComPostID < nextComment);
         return true;
       }
       return false;
+    },
+    pageURL: function(options){
+      console.log('inpageurlfunc', options);
+      if(!options.data.root.checkURL){
+        return false;
+      }else{
+        return true;
+      }
     }
   };
 

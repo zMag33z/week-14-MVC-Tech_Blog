@@ -66,6 +66,9 @@ router.get('/', withAuth, async (req, res) => {
         ]
       });
       
+      let thisURL = '/dashboard';
+      const checkURL = thisURL === '/home';
+
       let current = req.session.curr_id;
 
       let viewTitle = {
@@ -77,6 +80,7 @@ router.get('/', withAuth, async (req, res) => {
       const comments = commentData.map((project) => project.get({ plain: true }));
 
       res.render('dashboard', {
+        checkURL,
         capture: false,
         changes: false,
         current,

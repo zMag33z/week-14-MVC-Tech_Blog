@@ -7,7 +7,7 @@
     </div>
 
     <div class="hide">
-        <div class="list-top dark-brd med-text hgt40 pad15">
+        <div id="user-post-list" class="list-top dark-brd med-text hgt40 pad15">
             <p id="close" class="xl-font inline cursor">-</p>
             <p class="click-edit inline marL">( click Post to edit )</p>
         </div>
@@ -32,21 +32,18 @@
     </div>
 
     <div class="hide">
-        <div class="list-top dark-brd med-text hgt40 pad15">
+        <div id="user-comment-list" class="list-top dark-brd med-text hgt40 pad15">
             <p id="close" class="xl-font inline cursor">-</p>
             <p class="click-edit inline marL">( click Comment to edit )</p>
         </div>
 
         
         {{#each comments}}
-
         {{#if (postID_change @index)}}
         <section id="{{format_id @index}}" class="select">
             {{> all-comment-postTitles}}
         {{/if}}
-
             {{> all-comments}}
-
         {{#if (different @index)}}
         </section>
         {{/if}}
