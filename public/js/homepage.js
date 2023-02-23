@@ -1,5 +1,5 @@
 //  First Onload
-//  Hide add comment link if not logged in. Current is actually current user id.
+//  Hide add comment link if not logged in. Current is current user id.
 window.onload = function (){
     const add_comment = document.querySelectorAll('.edit');
     let current = document.getElementById('relevant').value;

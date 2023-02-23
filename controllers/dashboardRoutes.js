@@ -78,6 +78,7 @@ router.get('/', withAuth, async (req, res) => {
 
       res.render('dashboard', {
         capture: false,
+        changes: false,
         current,
         viewTitle,
         posts,

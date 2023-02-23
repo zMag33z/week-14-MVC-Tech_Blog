@@ -6,7 +6,7 @@
       <p id="close" class="xl-font inline cursor">-</p>
     </div>
 {{#each comments as |comment|}}
-    <div class="post-comment dark-bg med-text hgt40 pad15" data-style="hover">
+    <div id="{{format_id @index}}" class="post-comment dark-bg med-text hgt40 pad15" data-style="hover">
       <p id="by-user" class="inline xs-font fltR">Comment by: {{this.user.name}} on {{this.comment_date}}</p>
     </div>
 
