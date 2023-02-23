@@ -8,9 +8,11 @@ const visible = document.querySelectorAll('#show');
 
 //  All three Post post and Update post/comment box
 const edit_box = document.querySelector('#hide');
+const form_title = document.getElementById('box-title');
 const box_Title = document.getElementsByName('post')[0];
 const box_content = document.getElementsByName('content')[0];
 const submit_btn = document.querySelector('.submit');
+const delete_btn = document.querySelector('.delete');
 
 // Data attribute change for Proper hover effect
 const replace_attribute = document.querySelectorAll('.post-comment', '[data-style="hover"]');
@@ -65,7 +67,7 @@ function textarea(){
 var info;
 
 function editPost(e){
-    document.getElementById('box-title').innerHTML = 'Edit Post';
+    form_title.innerHTML = 'Edit Post';
     submit_btn.id = e.target.id;
 
     let targetID = parseInt(e.target.children[0].children[0].id);
@@ -83,7 +85,7 @@ function editPost(e){
 };
 
 function editComment(e){
-    document.getElementById('box-title').innerHTML = 'Edit Comment';
+    form_title.innerHTML = 'Edit Comment';
     submit_btn.id = e.target.id;
 
     let targetID = parseInt(e.target.children[1].children[0].id);
@@ -101,10 +103,12 @@ function editComment(e){
     showBox(info);
 };
 
-//  Events for showing Edit Box 
+//  Events for showing Edit Box
+// Add a post
 document.querySelector('#new-post').addEventListener('click', e => {
     submit_btn.id = e.target.id;
-
+    form_title.innerHTML = 'Add Post';
+    
     info = {
         title: '',
         content: '',
@@ -144,6 +148,11 @@ submit_btn.addEventListener('click', (e) => {
     retrieveFetch(info);
 });
 
+delete_btn.addEventListener('click', (e) => {
+
+    console.log(e.target.previousElementSibling.id);
+})
+
 async function retrieveFetch(info){
     let path;
     let method;
@@ -175,6 +184,9 @@ async function retrieveFetch(info){
                 comment_text: info.content,
             };
             break;
+        }
+        case 'delete': {
+            path = `/api/`
         }
     }
 
