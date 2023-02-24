@@ -1,4 +1,4 @@
-// Future note:  Add input validators.
+// Future note:  Add input validators for when browser don't support input requirements.
 
 const signupFormHandler = async (e) => {
     e.preventDefault();

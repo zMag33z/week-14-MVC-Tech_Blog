@@ -48,8 +48,6 @@ module.exports = {
       allUserComments.forEach(comment =>{
         commentsTosamePost[`post_${comment.post.id}`] = (commentsTosamePost[`post_${comment.post.id}`] || 0) + 1;
       });
-
-      console.log(currComPostID, commentsTosamePost[commentCount]);
       return commentsTosamePost[commentCount];
     }
   };
