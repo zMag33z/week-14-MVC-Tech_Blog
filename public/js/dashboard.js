@@ -6,7 +6,7 @@ const dash_Title = document.querySelector('#head-title').innerHTML = 'Dashboard'
 // Visible Section elements upon loading.
 const visible = document.querySelectorAll('#show');
 
-//  All three Post post and Update post/comment box
+//  All three- Post post, update post, and update comment - BOX.
 const edit_box = document.querySelector('#hide');
 const form_title = document.getElementById('box-title');
 const box_Title = document.getElementsByName('post')[0];
@@ -27,17 +27,17 @@ const user_list = document.querySelectorAll('#list');
         postNcomList.nextElementSibling.firstElementChild.firstElementChild.addEventListener('click', hideList);
     });
 
-function showList(e){
-    let targetParent = e.target.parentNode;
-    let parentNextSib = e.target.parentNode.nextElementSibling;
+async function showList(e){
+    let targetParent = await e.target.parentNode;
+    let parentNextSib = await e.target.parentNode.nextElementSibling;
 
     targetParent.style.display = 'none';
     parentNextSib.style.display ='block';
 };
 
-function hideList(e){
-    let targetParent = e.target.parentNode.parentNode;
-    let parentPrevSib = e.target.parentNode.parentNode.previousElementSibling;
+async function hideList(e){
+    let targetParent = await e.target.parentNode.parentNode;
+    let parentPrevSib = await e.target.parentNode.parentNode.previousElementSibling;
 
     targetParent.style.display = 'none';
     parentPrevSib.style.display = 'block';
@@ -63,7 +63,7 @@ function textarea(){
     }
 };
 
-//  Information being gather for request.
+//  Information being gather for fetch request.
 var info;
 
 function editPost(e){
@@ -117,13 +117,18 @@ document.querySelector('#new-post').addEventListener('click', e => {
     showBox(info);
 });
 
+function editThisInfo(info){
+    box_Title.value = info.title;
+    box_content.value = info.content;
+};
+
 function showBox(info){
-    edit_box.style.display = 'block';
     visible.forEach(shown => {
         shown.style.display = 'none';
     });
-    box_Title.value = info.title;
-    box_content.value = info.content;
+    edit_box.style.display = 'block';
+
+    editThisInfo(info);
 };
 
 // Events for hiding the Edit box.
