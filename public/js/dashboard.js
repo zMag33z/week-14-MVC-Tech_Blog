@@ -169,6 +169,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let method;
         let request;
 
+        let message;
+        let contentType;
+
         switch(submit_btn.id){
             case 'new-post': {
                 path = '/api/post/';
@@ -177,6 +180,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     title: info.title,
                     post_text: info.content,                
                 };
+                message = 'Added!';
+                contentType = 'New Post';
                 break;
             }
             case 'edit-post': {
@@ -186,6 +191,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     title: info.title,
                     post_text: info.content,
                 };
+                message = 'Updated!';
+                contentType = 'Post';
                 break;
             }
             case 'edit-comment': {
@@ -194,16 +201,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 request = {
                     comment_text: info.content,
                 };
+                message = 'Updated!';
+                contentType = 'Comment';
                 break;
             }
             case 'delete-post': {
                 path = `/api/post/${info}`;
                 method = 'DELETE';
+                message = 'Deleted!';
+                contentType = 'Post';
                 break;
             }
             case 'delete-comment': {
                 path = `/api/comment/${info}`;
                 method = 'DELETE';
+                message = 'Deleted!';
+                contentType = 'Comment';
                 break;
             }
         }
@@ -215,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if(response.ok){
-            if(!alert('Alert For your User!')){document.location.reload('/dashboard');}
+            if(!alert(`${contentType} ${message}`)){document.location.reload('/dashboard');}
             // document.location.reload('/dashboard');
 
         }else{

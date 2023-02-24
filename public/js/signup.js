@@ -17,7 +17,7 @@ const signupFormHandler = async (e) => {
    
 
       if (response.ok) {
-        document.location.replace('/');
+        if(!alert(`User account created!\n\nWelcome to the Dev Blog ${username}!`)){document.location.reload('/dashboard');}
       } else {
         alert('Username or Email already exists.');
       }

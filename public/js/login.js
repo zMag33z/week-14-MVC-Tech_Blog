@@ -12,7 +12,7 @@ const loginFormHandler = async (e) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      if(!alert(`Welcome back ${userLogin}!`)){document.location.reload('/dashboard');}
     }
      else {
       alert('Incorrect Username or Password!');
