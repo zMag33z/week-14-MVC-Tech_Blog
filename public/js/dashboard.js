@@ -58,8 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-    //  Edit comment shows post title, here textarea gets locked.
-    function textarea(){
+    function textarea(){    /*Edit comment shows post title, post title textarea gets locked.*/
         if(submit_btn.id === 'edit-comment'){
             box_Title.disabled = true;
         }else{
@@ -106,8 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showBox(info);
     };
 
-    //  Events for showing Edit Box
-    // Add a post
+    // Event to Add a post
     document.querySelector('#new-post').addEventListener('click', e => {
         form_title.innerHTML = 'Add Post';
         submit_btn.id = e.target.id;
@@ -121,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showBox(info);
     });
 
+    //  Events for showing THE EDIT/ADD Box and info.
     function editThisInfo(info){
         box_Title.value = info.title;
         box_content.value = info.content;
@@ -134,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         editThisInfo(info);
     };
 
-    // Events for hiding the Edit box.
+    // Event for hiding the Edit box.
     document.querySelector('.close-box').addEventListener('click', hideBox);
 
     function hideBox(){
@@ -203,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
             }
             case 'delete-comment': {
-                path = `/api/post/${info}`;
+                path = `/api/comment/${info}`;
                 method = 'DELETE';
                 break;
             }
@@ -216,11 +215,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if(response.ok){
-            document.location.reload('/dashboard');
+            if(!alert('Alert For your User!')){document.location.reload('/dashboard');}
+            // document.location.reload('/dashboard');
+
         }else{
             alert('Server Side ERROR!!!');
         }
     };
-
 });
+
+
 /*  MaG33  */

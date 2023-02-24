@@ -38,19 +38,18 @@ router.post('/', withAuth, async (req, res) => {
 //  Delete Comment by its id
   router.delete('/:id', withAuth, async (req, res) => {
     try {
-      console.log('HELLO delete', req.params.id);
-      // const remove = Comment.destroy({
-      //   where: {
-      //     id: req.params.id,
-      //   },
-      // });
+      const remove = Comment.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
 
-      // if(!remove){
-      //   res.status(404).json({ message: "Comment Not Found!" }).end();
-      // }
-      // res.status(200).json(remove);      
+      if(!remove){
+        res.status(404).json({ message: "Comment Not Found!" }).end();
+      }
+      res.status(200).json(remove);      
     } catch (err) {
-      // res.status(500).json(err);
+      res.status(500).json(err);
     }
   });
 

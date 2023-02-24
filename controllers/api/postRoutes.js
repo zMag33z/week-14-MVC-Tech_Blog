@@ -38,19 +38,18 @@ router.put('/:id', async (req, res) => {
 //  Delete Post by its id
 router.delete('/:id', async (req, res) => {
   try {
-    console.log('HELLO delete', req.body, req.params.id);
-    // const remove = Post.destroy({
-    //   where: {
-    //     id: req.params.id,
-    //   },
-    // });
+    const remove = Post.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
   
-    // if(!remove){
-    //   res.status(404).json({ message: "Post Not Found!"}).end();
-    // }
-    // res.status(200).json(remove);      
+    if(!remove){
+      res.status(404).json({ message: "Post Not Found!"}).end();
+    }
+    res.status(200).json(remove);      
   } catch (err) {
-    // res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
