@@ -6,20 +6,20 @@ module.exports = {
     json: function(obj) {
       return JSON.stringify(obj);
     },
-    postID_change: function(i, options) {
-      let capture = options.data.root.capture;
+    newSection: function(i, options) {
+      let captureID = options.data.root.captureID;
       let currComPostID = options.data.root.comments[i].post.id;
 
-      if(!capture || currComPostID !== capture){
-        options.data.root.capture = currComPostID;
+      if(!captureID || currComPostID !== captureID){
+        options.data.root.captureID = currComPostID;
         return true;
       }
-      if(currComPostID === capture){
+      if(currComPostID === captureID){
         return false;
       }
     },
-    different: function(i, options){
-      let currComPostID = options.data.root.capture;
+    endSection: function(i, options){
+      let currComPostID = options.data.root.captureID;
       let nextComment;
       let lastComment = options.data.last;
 
@@ -33,12 +33,24 @@ module.exports = {
       return false;
     },
     pageURL: function(options){
-      console.log('inpageurlfunc', options);
       if(!options.data.root.checkURL){
         return false;
       }else{
         return true;
       }
+    },
+    commentTOpostCNT: (i, options) => {
+      let currComPostID = options.data.root.captureID;
+      let allUserComments = options.data.root.comments;
+      let commentCount = `post_${currComPostID}`;
+      const commentsTosamePost = {};
+
+      allUserComments.forEach(comment =>{
+        commentsTosamePost[`post_${comment.post.id}`] = (commentsTosamePost[`post_${comment.post.id}`] || 0) + 1;
+      });
+
+      console.log(currComPostID, commentsTosamePost[commentCount]);
+      return commentsTosamePost[commentCount];
     }
   };
 

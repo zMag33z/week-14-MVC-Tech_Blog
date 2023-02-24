@@ -64,26 +64,27 @@ router.get('/', withAuth, async (req, res) => {
             ]
           }
         ]
-      });
-      
+      });      
+
+      // blocks adding comment box needed for homepage
       let thisURL = '/dashboard';
       const checkURL = thisURL === '/home';
-
-      let current = req.session.curr_id;
-
+      
+      // titles created here for section containers.
       let viewTitle = {
         posts: 'View Your Posts',
         comments: 'View Your Comments'
-      }
+      };
 
       const posts = postData.map((project) => project.get({ plain: true }));
       const comments = commentData.map((project) => project.get({ plain: true }));
 
+      // Capture 
       res.render('dashboard', {
         checkURL,
-        capture: false,
+        captureID: false,
         changes: false,
-        current,
+        current: req.session.curr_id,
         viewTitle,
         posts,
         comments,

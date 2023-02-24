@@ -39,12 +39,22 @@
 
         
         {{#each comments}}
-        {{#if (postID_change @index)}}
+        {{#if (newSection @index)}}
         <section id="{{format_id @index}}" class="select">
             {{> all-comment-postTitles}}
+            {{!-- {{> all-count}} --}}
+              <div id="list" class="comments dark-brd pad15">
+                <p id="{{this.id}}" class="underline click-width open inline cursor">comments:  <span id="comment-total">{{commentTOpostCNT @index}}</span></p>
+                <p class="edit inline cursor dark-text marL"></p>
+            </div>
+            <div class="hide">
+                <div class="list-top dark-brd med-text hgt40 pad15">
+                    <p id="close" class="xl-font inline cursor">-</p>
+                </div>
         {{/if}}
             {{> all-comments}}
-        {{#if (different @index)}}
+        {{#if (endSection @index)}}
+            </div>
         </section>
         {{/if}}
         {{/each}}
