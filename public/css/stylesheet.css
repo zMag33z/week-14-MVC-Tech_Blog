@@ -7,7 +7,6 @@ header{
 .flex{
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .nav-link{
@@ -185,6 +184,7 @@ textarea{
   
   /* Modal Content */
   .modal-content {
+    position: relative;
     width: 200px;
     color: var(--heading-main-bg-navTxt);
     background-color: var(--header-mainSectionHeads-bg-MostTxt);
@@ -192,8 +192,16 @@ textarea{
     border: 2px solid var(--mainSectionHeads-txt-headingShadow);
   }
   
+  .fv-box{
+    border: 2px solid var(--mainSectionHeads-txt-headingShadow);
+    padding: 38px;
+  }
+
   /* The Close Button */
   .fv-close {
+    position: absolute;
+    top: -5px;
+    left: 1px;
     color: var(--heading-main-bg-navTxt);
     font-size: 28px;
     font-weight: bold;
