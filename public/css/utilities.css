@@ -1,8 +1,8 @@
 /* color scheme */
 :root{
-    --header-mainSectionHeads-bg-MostTxt: black;
+    --header-mainSectionHeads-bg-MostTxt: hsl(0deg 0% 14%);
     --heading-main-bg-navTxt: hsl(120, 16%, 77%);
-    --mainSectionHeads-txt-headingShadow: grey;
+    --mainSectionHeads-txt-headingShadow: hsl(0deg 0% 56%);
 }
 
 /* Reset ALL */

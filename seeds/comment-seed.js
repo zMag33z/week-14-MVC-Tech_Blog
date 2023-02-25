@@ -18,7 +18,7 @@ const commentData = [
   },
   {
     post_id: 3,
-    comment_text: 'Comment Seed Number 4.',
+    comment_text: 'I enjoy the fact I can keep all my data for objects in one place.',
     commenter_id: 1
   }
 ];
