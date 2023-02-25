@@ -171,3 +171,37 @@ textarea{
     background-color: var(--heading-main-bg-navTxt);
 }
 
+/* Modal popup login or sign up */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    width: 200px;
+    color: var(--heading-main-bg-navTxt);
+    background-color: var(--header-mainSectionHeads-bg-MostTxt);
+    padding: 20px;
+    border: 2px solid var(--mainSectionHeads-txt-headingShadow);
+  }
+  
+  /* The Close Button */
+  .fv-close {
+    color: var(--heading-main-bg-navTxt);
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .fv-close:hover,
+  .fv-close:focus {
+    color: var(--mainSectionHeads-txt-headingShadow);
+    text-decoration: none;
+    cursor: pointer;
+  }

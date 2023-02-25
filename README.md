@@ -1,15 +1,21 @@
 # **The Dev Tech Blog**
 
-### This is a CMS-style blog site similar to a Wordpress site.  Following the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication was used in the creation of this site.  This is what allows a way for developers to publish their own blog posts and comment to other developer posts as well to this site.  Please remain kind and courteous (all unacceptable post/comments will be deleted).  Enjoy!<br><br>
+### This is a CMS-style blog site similar to a Wordpress site.  Following the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication was used in the creation of this site.  This is what allows a way for developers to publish their own blog posts and comment to other developer posts.  Please remain kind and courteous (all unacceptable post/comments will be deleted).  Enjoy!<br><br>
 
 ## Usage:
   
 When first entering the site one will be able to view all posts and comments to those posts.  Once a user creates a new account by signing up or logs in with a pre-created user account, they will then see a link to add a comment to a post on the homepage.  The user may then travel to the dashboard link located in the nav section in the header.  Once arriving on the dashboard the user may then create their own post or update/delete any post or comment information by selection.  
 
-***place gif here***
-![will be adding this](thisismylink)
+***Homepage to All viewers***
+![home to all](./public/images/home.png)
 
-Walkthrough video [*click here*]().
+***Viewer Sign up***
+![sign up](./public/images/signup.png)
+
+***Logged in User views***
+![home logged in](./public/images/homelogged.png)
+
+![personal dashboard](./public/images/dashboard.png)
 
 ## Future Changes:
 
