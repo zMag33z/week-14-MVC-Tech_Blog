@@ -43,7 +43,7 @@ Implement comment to comment relationship for more diverse communication.
 
 ## Location:
 
-Live URL:&nbsp;&nbsp;[Heroku - The Dev Tech Blog](y)
+Live URL:&nbsp;&nbsp;[Heroku - The Dev Tech Blog](https://the-tech-blog-post.herokuapp.com/)
 
 Code Location:&nbsp;&nbsp;[GitHub Repository](https://github.com/zMag33z/week-14-MVC-Tech_Blog)
 
