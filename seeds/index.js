@@ -1,4 +1,3 @@
-// Require seeds for npm run seed
 const seedUsers = require('./user-seed');
 const seedPosts = require('./post-seed');
 const seedComments = require('./comment-seed');
