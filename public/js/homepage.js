@@ -11,7 +11,7 @@ window.onload = function (){
         // Modal event asking user to login or sign up after idle on homepage for 15 seconds.
         setTimeout(function() {
             modal.style.display = "block";
-          }, 3000);
+          }, 1000 * 15);
 
         add_comment.forEach(addBtn => {
             addBtn.style.display = 'none';

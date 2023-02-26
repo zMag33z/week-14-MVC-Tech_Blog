@@ -4,11 +4,6 @@ header{
     padding: 20px 60px;
 }
 
-.flex{
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .nav-link{
     margin: 0 60px 20px 0;
     text-decoration: none;
@@ -28,6 +23,7 @@ main{
     padding: 20px 60px 135px 60px;
 }
 
+/* Dashboard's new post btn */
 .new-post{
     position: absolute;
     left: 0;
@@ -36,21 +32,29 @@ main{
     text-align: center;
 }
 
-/* Contains each post/form */
+/* Contains each section to itself.  Sections for list/box types and list types upon list types. */
 .container{
     border: 4px solid var(--header-mainSectionHeads-bg-MostTxt);
     margin-bottom: 20px;
 }
 
+/*  All form/editing box */
+.box{
+    padding: 5px 0;
+}
+
+/* All form boxes */
+#info{
+    padding-bottom: 15px;
+}
+
+/* sign up btn */
 .signup{
     font-size: 26px;
     font-weight: 700;
 }
 
-#info{
-    padding-bottom: 15px;
-}
-
+/* fields for editing or adding data */
 textarea{
     resize: none;
     width: 100%;
@@ -58,23 +62,28 @@ textarea{
     padding: 5px;
 }
 
-.box{
-    padding: 5px 0;
+/* space in all form/editing boxes */
+.create{
+    padding-top: 15px;
 }
 
+/* used on all btn like features */
 .btn{
     font-size: 16px;
     padding: 10px;
     border: none;
 }
 
+/* specific to the symbol x */
 #close{
     font-weight: 900;
     line-height: 0;
 }
 
-.create{
-    padding-top: 15px;
+/* shared styles by style desc */
+.flex{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .inline{
@@ -101,10 +110,6 @@ textarea{
     display: none;
 }
 
-.click-edit{
-    padding-bottom: 5px;
-}
-
 .marL{
     margin-left:40px;
 }
@@ -124,11 +129,12 @@ textarea{
 .block{
     pointer-events: none;
 }
+
 .xs-font{
     font-size: 15px;
 }
 
-.s-font, textarea{
+.s-font{
     font-size: 18px;
 }
 
@@ -143,17 +149,30 @@ textarea{
 .xl-font{
     font-size: 44px;
 }
+
 /* Color Sharings */
-/* Same font colors */
-.dark-text, .create, .box, label{
+/* font colors */
+.box,
+.create,
+.dark-text,
+label{
     color: var(--header-mainSectionHeads-bg-MostTxt);
 }
 
-.med-text, .signup:hover, .nav-link:hover, .open:hover, .edit:hover{
+.nav-link:hover,
+.signup:hover,
+.open:hover,
+.edit:hover,
+.med-text{
     color: var(--mainSectionHeads-txt-headingShadow);
 }
 
-.lgt-text, .nav-link, .btn:hover, .container:hover [data-style="hover"], #new-post:hover, .select:hover [data-style="userHov"]{
+.container:hover [data-style="hover"],
+.select:hover [data-style="userHov"],
+.nav-link,
+.btn:hover,
+#new-post:hover,
+.lgt-text{
     color: var(--heading-main-bg-navTxt);
 }
 
@@ -180,25 +199,23 @@ textarea{
     width: 100%;
     height: 100%;
     padding: 20px;
-  }
+}
   
-  /* Modal Content */
-  .modal-content {
+.modal-content {
     position: relative;
     width: 200px;
     color: var(--heading-main-bg-navTxt);
     background-color: var(--header-mainSectionHeads-bg-MostTxt);
     padding: 20px;
     border: 2px solid var(--mainSectionHeads-txt-headingShadow);
-  }
+}
   
-  .fv-box{
+.fv-box{
     border: 2px solid var(--mainSectionHeads-txt-headingShadow);
-    padding: 38px;
-  }
+    padding: 18px;
+}
 
-  /* The Close Button */
-  .fv-close {
+.fv-close {
     position: absolute;
     top: -5px;
     left: 1px;
@@ -207,9 +224,9 @@ textarea{
     font-weight: bold;
   }
   
-  .fv-close:hover,
-  .fv-close:focus {
+.fv-close:hover,
+.fv-close:focus {
     color: var(--mainSectionHeads-txt-headingShadow);
     text-decoration: none;
     cursor: pointer;
-  }
+}
