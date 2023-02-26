@@ -1,5 +1,4 @@
 //  Future note:  implement comment to comment.
-
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const { hasAuth } = require('../utils/auth');
