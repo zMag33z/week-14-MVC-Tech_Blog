@@ -1,6 +1,6 @@
 const User = require('./thisUser');
-const Post = require('./Post');
-const Comment = require('./Comment');
+const Post = require('./thisPost');
+const Comment = require('./thisComment');
 
 Post.belongsTo(User, {
     foreignKey: 'poster_id',
